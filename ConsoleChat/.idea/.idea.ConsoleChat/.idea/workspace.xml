@@ -42,6 +42,9 @@
         <option value="$PROJECT_DIR$/Server/Server.cs" />
         <option value="$PROJECT_DIR$/Server/Client.cs" />
         <option value="$PROJECT_DIR$/Server/Program.cs" />
+        <option value="$PROJECT_DIR$/Server/JSON/ISerializeble.cs" />
+        <option value="$PROJECT_DIR$/Server/JSON/AuthReg.cs" />
+        <option value="$PROJECT_DIR$/Server/JSON/Message.cs" />
       </list>
     </option>
   </component>
@@ -105,13 +108,14 @@
       <option name="presentableId" value="Default" />
       <updated>1613401345093</updated>
       <workItem from="1613401402526" duration="934000" />
+      <workItem from="1613497192711" duration="3193000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -123,6 +127,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
