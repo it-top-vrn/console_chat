@@ -6,8 +6,8 @@ namespace ConsoleChat
     {
         static void Main(string[] args)
         {
-            RegistrationForm reg;
-            reg = new RegistrationForm();
+            AutorizationForm reg;
+            reg = new AutorizationForm();
             reg.Initialize();
         }
     }

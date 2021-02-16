@@ -5,7 +5,7 @@ using Terminal.Gui;
 
 namespace ConsoleChat
 {
-    class RegistrationForm
+    class AutorizationForm
     {
 		public void Initialize()
 		{
