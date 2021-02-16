@@ -6,7 +6,9 @@ namespace ConsoleChat
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            RegistrationForm reg;
+            reg = new RegistrationForm();
+            reg.Initialize();
         }
     }
 }
