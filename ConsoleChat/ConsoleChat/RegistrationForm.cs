@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+<<<<<<< Updated upstream
 using Terminal.Gui;
+=======
+>>>>>>> Stashed changes
 
 namespace ConsoleChat
 {
     class RegistrationForm
     {
+<<<<<<< Updated upstream
 		public void Initialize()
 		{
 
@@ -77,4 +81,7 @@ namespace ConsoleChat
 			Application.Run();
 		}
 	}
+=======
+    }
+>>>>>>> Stashed changes
 }
