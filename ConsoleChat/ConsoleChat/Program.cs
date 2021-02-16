@@ -6,7 +6,8 @@ namespace ConsoleChat
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-        }
+            AutorizationForm autoriz = new AutorizationForm();
+            autoriz.Initialize();
+		}
     }
 }
