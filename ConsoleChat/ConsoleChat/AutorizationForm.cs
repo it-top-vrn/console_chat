@@ -13,7 +13,7 @@ namespace ConsoleChat
 			Application.Init();
 			var top = Application.Top;
 
-			var win = new Window("MyApp")
+			var win = new Window("AUTORIZATION")
 			{
 				X = 0,
 				Y = 1,
