@@ -35,7 +35,7 @@ namespace ConsoleChat
 				X = 10,
 				Y = 5
 			};
-			var forgotPassword = new Label("Forgot password: ")
+			var repeatPassword = new Label("Repeat password: ")
 			{
 				X = 3,
 				Y = 8
@@ -57,7 +57,7 @@ namespace ConsoleChat
 			{
 				Secret = true,
 				X = Pos.Left(passText),
-				Y = Pos.Top(forgotPassword),
+				Y = Pos.Top(repeatPassword),
 				Width = Dim.Width(passText)
 			};
 			var button_OK = new Button(3, 14, "OK")
@@ -72,7 +72,7 @@ namespace ConsoleChat
 			};
 
 			win.Add(
-				login, password, loginText, passText, button_OK, button_Cansel, forgotPassText, forgotPassword
+				login, password, loginText, passText, button_OK, button_Cansel, forgotPassText, repeatPassword
 			);
 
 			Application.Run();
