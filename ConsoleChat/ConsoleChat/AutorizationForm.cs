@@ -13,7 +13,7 @@ namespace ConsoleChat
 			Application.Init();
 			var top = Application.Top;
 
-			var win = new Window("MyApp")
+			var win = new Window("AUTORIZATION")
 			{
 				X = 0,
 				Y = 1,
@@ -26,7 +26,7 @@ namespace ConsoleChat
 
 			var login = new Label("Login: ")
 			{
-				X = 3,
+				X = 6,
 				Y = 2
 			};
 			var password = new Label("Password: ")
