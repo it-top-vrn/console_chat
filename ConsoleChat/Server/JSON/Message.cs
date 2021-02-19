@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Text.Json;
+using Newtonsoft.Json;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Server.JSON
 {
@@ -23,6 +24,18 @@ namespace Server.JSON
         public string Serialize()
         {
             return JsonSerializer.Serialize(this);
+        }
+        public static bool CanDeserialize(string json)
+        {
+            if (json.Contains("\"TextMessage\":"))
+            {
+                return true;
+            }
+            return false;
+        }
+        public static Message Deserialize(string json)
+        {
+            return JsonConvert.DeserializeObject<Message>(json);
         }
     }
     

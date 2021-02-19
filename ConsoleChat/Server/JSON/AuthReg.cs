@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using Newtonsoft.Json;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Server.JSON
 {
@@ -16,6 +17,19 @@ namespace Server.JSON
         public string Serialize()
         {
             return JsonSerializer.Serialize(this);
+        }
+
+        public static bool CanDeserialize(string json)
+        {
+            if (json.Contains("\"Login\":"))
+            {
+                return true;
+            }
+            return false;
+        }
+        public static AuthReg Deserialize(string json)
+        {
+            return JsonConvert.DeserializeObject<AuthReg>(json);
         }
     }
 }
