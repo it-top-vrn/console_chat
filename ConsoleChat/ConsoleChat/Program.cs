@@ -8,6 +8,8 @@ namespace ConsoleChat
         {
             AutorizationForm autoriz = new AutorizationForm();
             autoriz.Initialize();
-		}
+            RegistrationForm reg = new RegistrationForm();
+            reg.Initialize();
+        }
     }
 }
