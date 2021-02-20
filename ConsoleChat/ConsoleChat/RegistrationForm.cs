@@ -27,17 +27,17 @@ namespace ConsoleChat
 			var login = new Label("Login: ")
 			{
 				X = 13,
-				Y = 3
+				Y = 1
 			};
 			var password = new Label("Password: ")
 			{
 				X = 10,
-				Y = 6
+				Y = 4
 			};
 			var repeatPassword = new Label("Repeat password: ")
 			{
 				X = 3,
-				Y = 8
+				Y = 6
 			};
 			var loginText = new TextField("")
 			{
@@ -59,22 +59,36 @@ namespace ConsoleChat
 				Y = Pos.Top(repeatPassword),
 				Width = Dim.Width(passText)
 			};
-			var button_OK = new Button(3, 14, "OK")
+			var button_OK = new Button(3, 10, "OK")
 			{
 				Width = 3,
 				Height = 10
 			};
-			var button_Cansel = new Button(10, 14, "Cansel")
+			var button_Cansel = new Button(10, 10, "Cansel")
+			{
+				Width = 3,
+				Height = 10
+			};
+			var button_Autorization = new Button(30, 10, "Autorization")
 			{
 				Width = 3,
 				Height = 10
 			};
 
+			button_Autorization.Clicked += Clicked;
+			void Clicked() => AutorizationForm();
+
 			win.Add(
-				login, password, loginText, passText, button_OK, button_Cansel, repeatPassword, repeatPassText
+				login, password, loginText, passText, button_OK, button_Cansel, repeatPassword, repeatPassText, button_Autorization
 			);
 
 			Application.Run();
 		}
+
+		private void AutorizationForm()
+        {
+			AutorizationForm autoriz = new AutorizationForm();
+			autoriz.Initialize();
+        }
 	}
 }
