@@ -5,15 +5,15 @@ using Terminal.Gui;
 
 namespace ConsoleChat
 {
-    class AutorizationForm
-    {
+	class RegistrationForm
+	{
 		public void Initialize()
 		{
 
 			Application.Init();
 			var top = Application.Top;
 
-			var win = new Window("AUTORIZATION")
+			var win = new Window("REGISTRATION")
 			{
 				X = 0,
 				Y = 1,
@@ -26,13 +26,18 @@ namespace ConsoleChat
 
 			var login = new Label("Login: ")
 			{
-				X = 6,
-				Y = 2
+				X = 13,
+				Y = 1
 			};
 			var password = new Label("Password: ")
 			{
+				X = 10,
+				Y = 4
+			};
+			var repeatPassword = new Label("Repeat password: ")
+			{
 				X = 3,
-				Y = 5
+				Y = 6
 			};
 			var loginText = new TextField("")
 			{
@@ -47,7 +52,13 @@ namespace ConsoleChat
 				Y = Pos.Top(password),
 				Width = Dim.Width(loginText)
 			};
-
+			var repeatPassText = new TextField("")
+			{
+				Secret = true,
+				X = Pos.Left(passText),
+				Y = Pos.Top(repeatPassword),
+				Width = Dim.Width(passText)
+			};
 			var button_OK = new Button(3, 10, "OK")
 			{
 				Width = 3,
@@ -58,31 +69,26 @@ namespace ConsoleChat
 				Width = 3,
 				Height = 10
 			};
-			var button_Registration = new Button(30, 10, "Registration")
-			{
-				Width = 3,
-				Height = 10
-			};
-			var btn = new Button(30, 10, "")
+			var button_Autorization = new Button(30, 10, "Autorization")
 			{
 				Width = 3,
 				Height = 10
 			};
 
-			button_Registration.Clicked += Clicked;
-			void Clicked() => Registration_Form();
+			button_Autorization.Clicked += Clicked;
+			void Clicked() => AutorizationForm();
 
 			win.Add(
-				login, password, loginText, passText, button_OK, button_Cansel, button_Registration
+				login, password, loginText, passText, button_OK, button_Cansel, repeatPassword, repeatPassText, button_Autorization
 			);
 
 			Application.Run();
 		}
 
-		private void Registration_Form()
+		private void AutorizationForm()
         {
-			RegistrationForm reg = new RegistrationForm();
-			reg.Initialize();
+			AutorizationForm autoriz = new AutorizationForm();
+			autoriz.Initialize();
         }
 	}
 }

@@ -1,13 +1,13 @@
 ﻿using System;
 
-namespace ConsoleChat
+namespace Registration
 {
     class Program
     {
         static void Main(string[] args)
         {
-            AutorizationForm autoriz = new AutorizationForm();
-            autoriz.Initialize();
+            RegistrationForm reg = new RegistrationForm();
+            reg.Initialize();
         }
     }
 }
