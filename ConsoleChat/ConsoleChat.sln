@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server", "Server\Server.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Registration", "Registration\Registration.csproj", "{C77D6141-DED8-4353-B57C-FF24C08FE2A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "apiDatabase", "apiDatabase\apiDatabase.csproj", "{F2699014-BB1A-4B95-8516-FB316C47EB1A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C77D6141-DED8-4353-B57C-FF24C08FE2A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C77D6141-DED8-4353-B57C-FF24C08FE2A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C77D6141-DED8-4353-B57C-FF24C08FE2A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2699014-BB1A-4B95-8516-FB316C47EB1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2699014-BB1A-4B95-8516-FB316C47EB1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2699014-BB1A-4B95-8516-FB316C47EB1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2699014-BB1A-4B95-8516-FB316C47EB1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
