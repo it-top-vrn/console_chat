@@ -10,12 +10,13 @@ namespace Server
 {
     public class Server
     {
-        static TcpListener tcpListener; // сервер для прослушивания
-        List<Client> clients = new List<Client>(); // все подключения
- 
+        public static TcpListener tcpListener; // сервер для прослушивания
+        private List<Client> clients = new List<Client>(); // все подключения
+        
         protected internal void AddConnection(Client client)
         {
             clients.Add(client);
+            Console.WriteLine("Добавлен новый клинет");
         }
         protected internal void RemoveConnection(string id)
         {
@@ -37,7 +38,7 @@ namespace Server
                 while (true)
                 {
                     TcpClient tcpClient = tcpListener.AcceptTcpClient();
- 
+                    
                     Client clientObject = new Client(tcpClient, this);
                     Thread clientThread = new Thread(clientObject.Process);
                     clientThread.Start();
@@ -72,6 +73,11 @@ namespace Server
                 clients[i].Close(); //отключение клиента
             }
             Environment.Exit(0); //завершение процесса
+        }
+
+        public List<Client> GetClients()
+        {
+            return new List<Client>(clients);
         }
     }
 }
