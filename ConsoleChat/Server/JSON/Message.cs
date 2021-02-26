@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlTypes;
 using Newtonsoft.Json;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 
@@ -6,8 +7,8 @@ namespace Server.JSON
 {
     public enum MessageTypeofCommand 
     {
-        TextMessage, // Отправляем сообщение, Указываем TextMessage, AmountMessages и FileName не указываем
-        FileMessage, // Отправляем файл. Указываем FileName, AmountMessages и TextMessage не указываем
+        TextMessage, // Отправляем сообщение. Указываем TextMessage. AmountMessages и FileName не указываем
+        FileMessage, // Отправляем файл. Указываем FileName. AmountMessages и TextMessage не указываем
         GetMessages // Получаем последние сообщеня. Указываем AmountMessages, Sender, Recepient обязательно, остальное не указываем
     }
     public class Message : ISerializable
@@ -25,11 +26,42 @@ namespace Server.JSON
         {
             return JsonSerializer.Serialize(this);
         }
+
+        public void Execute(Client client)
+        {
+            var server = client.server;
+            if (TypeofCommand == MessageTypeofCommand.TextMessage || TypeofCommand == MessageTypeofCommand.FileMessage)
+            {
+                foreach (var c in server.GetClients())
+                {
+                    // Здесь может быть логирование
+                    if (c.userName == Recepient)
+                    {
+                        if (TypeofCommand == MessageTypeofCommand.FileMessage)
+                        {
+                            Console.WriteLine($"Отправка файла от {Sender} к {Recepient}");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Отправка сообщения от {Sender} к {Recepient}");
+                        }
+                        c.SendMessage(Serialize());
+                        break;
+                    }
+                }
+            } else if (TypeofCommand == MessageTypeofCommand.GetMessages)
+            {
+                // требуется запросы к бд
+                Console.WriteLine($"{Sender} хочет получить {AmountMessages} сообщений от {Recepient}");
+                throw new SqlNullValueException(" не реализована. Нет бд");
+            }
+        }
+
         public static bool CanDeserialize(string json)
         {
             if (json.Contains("\"TextMessage\":"))
             {
-                return true;
+                return JsonConvert.DeserializeObject<Message>(json) != null;
             }
             return false;
         }

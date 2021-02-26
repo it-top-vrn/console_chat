@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.Sockets;
 using System.Text;
+using Server.JSON;
 
 namespace Server
 {
@@ -8,9 +9,9 @@ namespace Server
     {
         protected internal string Id { get; }
         protected internal NetworkStream Stream {get; private set;}
-        string userName;
+        public string userName;
         TcpClient client;
-        Server server; // объект сервера
+        public Server server; // объект сервера
  
         public Client(TcpClient tcpClient, Server server)
         {
@@ -37,7 +38,7 @@ namespace Server
                     {
                         message = GetMessage();
                         message = String.Format("{0}: {1}", userName, message);
-                        Console.WriteLine(message);
+                        HandleMessage(message);
                         server.BroadcastMessage(message, Id);
                     }
                     catch
@@ -84,6 +85,24 @@ namespace Server
                 Stream.Close();
             if (client != null)
                 client.Close();
+        }
+        protected internal void HandleMessage(string json)
+        {
+            ISerializable command = null;
+            if (AuthReg.CanDeserialize(json))
+            {
+                command = AuthReg.Deserialize(json);
+            } else if (Message.CanDeserialize(json))
+            {
+                command = Message.Deserialize(json);
+            }
+            command.Execute(this);
+        }
+
+        public void SendMessage(string message)
+        {
+            byte[] data = Encoding.Unicode.GetBytes(message);
+            Stream.Write(data, 0, data.Length);
         }
     }
 }
