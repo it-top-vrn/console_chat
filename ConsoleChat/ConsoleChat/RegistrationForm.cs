@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using Terminal.Gui;
 
@@ -7,6 +7,11 @@ namespace ConsoleChat
 {
 	class RegistrationForm
 	{
+		private ServerConnection _serverConnection;
+		public RegistrationForm(ServerConnection serverConnection)
+		{
+			_serverConnection = serverConnection;
+		}
 		public void Initialize()
 		{
 
@@ -64,6 +69,7 @@ namespace ConsoleChat
 				Width = 3,
 				Height = 10
 			};
+			//button_OK.Clicked += Button_OKOnClicked;
 			var button_Cansel = new Button(10, 10, "Cansel")
 			{
 				Width = 3,
@@ -85,9 +91,17 @@ namespace ConsoleChat
 			Application.Run();
 		}
 
+		private void Button_OKOnClicked(TextField login, TextField password)
+		{
+			var username = login.Text.ToString();
+			var pass = password.Text.ToString();
+			//Process.Start(target);
+			
+		}
+
 		private void AutorizationForm()
         {
-			AutorizationForm autoriz = new AutorizationForm();
+			AutorizationForm autoriz = new AutorizationForm(_serverConnection);
 			autoriz.Initialize();
         }
 	}
