@@ -26,28 +26,15 @@ namespace Server
             try
             {
                 Stream = client.GetStream();
-                // получаем имя пользователя
-                string message = GetMessage();
-                userName = message;
-                
-                Console.WriteLine(message);
                 // в бесконечном цикле получаем сообщения от клиента
                 while (true)
                 {
-                    try
-                    {
-                        message = GetMessage();
-                        message = String.Format("{0}: {1}", userName, message);
-                        HandleMessage(message);
-                        server.BroadcastMessage(message, Id);
-                    }
-                    catch
-                    {
-                        message = String.Format("{0}: покинул чат", userName);
-                        Console.WriteLine(message);
-                        server.BroadcastMessage(message, Id);
-                        break;
-                    }
+                    string message;
+                    message = GetMessage();
+                    Console.WriteLine(message);
+                    HandleMessage(message);
+                    //server.BroadcastMessage(message, Id);
+
                 }
             }
             catch(Exception e)

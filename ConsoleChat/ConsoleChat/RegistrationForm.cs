@@ -1,12 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
+using Server.JSON;
 using Terminal.Gui;
 
 namespace ConsoleChat
 {
 	class RegistrationForm
 	{
+		private ServerConnection _serverConnection;
+		public RegistrationForm(ServerConnection serverConnection)
+		{
+			_serverConnection = serverConnection;
+		}
 		public void Initialize()
 		{
 
@@ -64,6 +70,8 @@ namespace ConsoleChat
 				Width = 3,
 				Height = 10
 			};
+			button_OK.Clicked += ClickedOk;
+			void ClickedOk() => Button_OKOnClicked(loginText, passText);
 			var button_Cansel = new Button(10, 10, "Cansel")
 			{
 				Width = 3,
@@ -85,9 +93,19 @@ namespace ConsoleChat
 			Application.Run();
 		}
 
+		private void Button_OKOnClicked(TextField login, TextField password)
+		{
+			AuthReg authReg = new AuthReg();
+			authReg.Login = login.Text.ToString();
+			authReg.Password = password.Text.ToString();
+			authReg.TypeOfCommand = AuthRegTypeOfCommand.Registration;
+			_serverConnection.SendMessage(authReg.Serialize());
+			
+		}
+
 		private void AutorizationForm()
         {
-			AutorizationForm autoriz = new AutorizationForm();
+			AutorizationForm autoriz = new AutorizationForm(_serverConnection);
 			autoriz.Initialize();
         }
 	}

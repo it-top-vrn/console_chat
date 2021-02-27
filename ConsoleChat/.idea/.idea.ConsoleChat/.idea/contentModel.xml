@@ -3,23 +3,27 @@
   <component name="ContentModelStore">
     <e p="C:\AnSt\console_chat\ConsoleChat" t="IncludeFlat">
       <e p="ConsoleChat" t="IncludeRecursive">
-        <e p="Autorization.csproj" t="IncludeRecursive" />
         <e p="AutorizationForm.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
+        <e p="ConsoleChat.csproj" t="IncludeRecursive" />
+        <e p="JSON" t="Include">
+          <e p="AuthReg.cs" t="Include" />
+          <e p="ISerializeble.cs" t="Include" />
+          <e p="Message.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
-              <e p="Autorization.AssemblyInfo.cs" t="Include" />
+              <e p="ConsoleChat.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
         <e p="Program.cs" t="Include" />
+        <e p="RegistrationForm.cs" t="Include" />
+        <e p="ServerConnection.cs" t="Include" />
       </e>
       <e p="ConsoleChat.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />
-      <e p="Registration" t="IncludeRecursive">
-        <e p="Registration.csproj" t="IncludeRecursive" />
-      </e>
       <e p="Server" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Client.cs" t="Include" />

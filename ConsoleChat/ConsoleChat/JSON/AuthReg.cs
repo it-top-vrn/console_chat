@@ -21,16 +21,14 @@ namespace Server.JSON
             return JsonSerializer.Serialize(this);
         }
 
-        public void Execute(Client client)
+        public void Execute()
         {
             if (TypeOfCommand == AuthRegTypeOfCommand.Authorization)
             {
-                // должна быть авторизация
-                throw new SqlNullValueException("Авторизация не реализована. Нет бд");
+                
             } else if (TypeOfCommand == AuthRegTypeOfCommand.Registration)
             {
-                // должна быть регистрация
-                throw new SqlNullValueException("Регистрация не реализована. Нет бд");
+                
             }
         }
         public static bool CanDeserialize(string json)
