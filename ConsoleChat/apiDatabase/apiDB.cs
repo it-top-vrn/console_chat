@@ -121,11 +121,11 @@ namespace api_database
             return systemMessage["authfail"];
         }
         
-        public static bool PostMessage (string loginSender, string loginRecipient, string textMessage) {
+        public static bool PostMessage (string loginSender, string loginRecipient, string textMessage, string typeMessage = "text") {
             var connection = DBconnection.Connection();
             if (connection.success)
             {
-                var sql = $"INSERT INTO t_message(message_login_sender, message_login_recipient, message_text) VALUES ('{loginSender}', '{loginRecipient}', '{textMessage}')";
+                var sql = $"INSERT INTO t_message(message_login_sender, message_login_recipient, message_text, message_type) VALUES ('{loginSender}', '{loginRecipient}', '{textMessage}', '{typeMessage}')";
                 var result = DBconnection.InsertQuery(sql, connection.connection);
                 if (result == 1)
                 {
@@ -140,21 +140,25 @@ namespace api_database
             return false;
         }
         
-        public static Dictionary<DateTime, string> GetMessage (string loginSender, string loginRecipient, int quantityMessages)
+        public static Dictionary<DateTime, List<string>> GetMessage (string loginSender, string loginRecipient, int quantityMessages)
         {
             var messages = new Dictionary<DateTime, string>();
             var connection = DBconnection.Connection();
             if (connection.success)
             {
-                var sql = $"SELECT message_text, message_date FROM t_message WHERE message_login_sender = '{loginSender}' and message_login_recipient = '{loginRecipient}' order by message_id desc limit {quantityMessages}";
+                var sql = $"SELECT message_text, message_date, message_type FROM t_message WHERE message_login_sender = '{loginSender}' and message_login_recipient = '{loginRecipient}' order by message_id desc limit {quantityMessages}";
                 var result = DBconnection.SelectQuery(sql, connection.connection);
                 if(result.HasRows)
                 {
                     while (result.Read())
                     {
+                        var listTextType = new List<string>();
                         var baseMessage = result.GetValue(0);
                         var baseDate = result.GetValue(1);
-                        messages.Add((DateTime) baseDate, baseMessage.ToString());
+                        var baseType = result.GetValue(2);
+                        listTextType.Add(baseMessage);
+                        listTextType.Add(baseType);
+                        messages.Add((DateTime) baseDate, listTextType);
                     }
                 }
             }
