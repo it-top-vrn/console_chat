@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Text;
+using Server.JSON;
 using Terminal.Gui;
 
 namespace ConsoleChat
@@ -69,7 +70,8 @@ namespace ConsoleChat
 				Width = 3,
 				Height = 10
 			};
-			//button_OK.Clicked += Button_OKOnClicked;
+			button_OK.Clicked += ClickedOk;
+			void ClickedOk() => Button_OKOnClicked(loginText, passText);
 			var button_Cansel = new Button(10, 10, "Cansel")
 			{
 				Width = 3,
@@ -93,9 +95,11 @@ namespace ConsoleChat
 
 		private void Button_OKOnClicked(TextField login, TextField password)
 		{
-			var username = login.Text.ToString();
-			var pass = password.Text.ToString();
-			//Process.Start(target);
+			AuthReg authReg = new AuthReg();
+			authReg.Login = login.Text.ToString();
+			authReg.Password = password.Text.ToString();
+			authReg.TypeOfCommand = AuthRegTypeOfCommand.Registration;
+			_serverConnection.SendMessage(authReg.Serialize());
 			
 		}
 

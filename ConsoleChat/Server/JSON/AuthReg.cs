@@ -14,6 +14,7 @@ namespace Server.JSON
         public AuthRegTypeOfCommand TypeOfCommand { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
+        public bool Success { get; set; }
         
         public string Serialize()
         {
