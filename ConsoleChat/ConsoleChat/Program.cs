@@ -6,8 +6,7 @@ namespace ConsoleChat
     {
         static void Main(string[] args)
         {
-            ServerConnection serverConnection = new ServerConnection();
-            AutorizationForm autoriz = new AutorizationForm(serverConnection);
+            AutorizationForm autoriz = new AutorizationForm();
             autoriz.Initialize();
         }
     }

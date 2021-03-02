@@ -27,34 +27,14 @@ namespace Server.JSON
             return JsonSerializer.Serialize(this);
         }
 
-        public void Execute(Client client)
+        public void Execute()
         {
-            var server = client.server;
             if (TypeofCommand == MessageTypeofCommand.TextMessage || TypeofCommand == MessageTypeofCommand.FileMessage)
             {
-                foreach (var c in server.GetClients())
-                {
-                    // Здесь может быть логирование
-                    if (c.userName == Recepient)
-                    {
-                        if (TypeofCommand == MessageTypeofCommand.FileMessage)
-                        {
-                            Console.WriteLine($"Отправка файла от {Sender} к {Recepient}");
-                            client.DownLoadFile(FileName);
-                        }
-                        else
-                        {
-                            Console.WriteLine($"Отправка сообщения от {Sender} к {Recepient}");
-                        }
-                        c.SendMessage(Serialize());
-                        break;
-                    }
-                }
+                
             } else if (TypeofCommand == MessageTypeofCommand.GetMessages)
             {
-                // требуется запросы к бд
-                Console.WriteLine($"{Sender} хочет получить {AmountMessages} сообщений от {Recepient}");
-                throw new SqlNullValueException(" не реализована. Нет бд");
+                
             }
         }
 
@@ -71,4 +51,5 @@ namespace Server.JSON
             return JsonConvert.DeserializeObject<Message>(json);
         }
     }
+    
 }

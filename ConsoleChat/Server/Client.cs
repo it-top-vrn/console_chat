@@ -8,11 +8,11 @@ namespace Server
     public class Client
     {
         protected internal string Id { get; }
-        protected internal NetworkStream Stream { get; private set; }
+        protected internal NetworkStream Stream {get; private set;}
         public string userName;
-        TcpClient client;
+        public TcpClient client;
         public Server server; // объект сервера
-
+ 
         public Client(TcpClient tcpClient, Server server)
         {
             Id = Guid.NewGuid().ToString();
@@ -20,7 +20,7 @@ namespace Server
             this.server = server;
             server.AddConnection(this);
         }
-
+ 
         public void Process()
         {
             try
@@ -31,15 +31,17 @@ namespace Server
                 {
                     string message;
                     message = GetMessage();
-                    Console.WriteLine(message);
                     HandleMessage(message);
                     //server.BroadcastMessage(message, Id);
 
                 }
             }
-            catch (Exception e)
+            catch(Exception e)
             {
-                Console.WriteLine(e.Message);
+                string user = "";
+                if (userName == null) user = "NOT_AUTHORIZATED";
+                else user = userName;
+                Console.WriteLine($"Клиент {user} - {client.Client.RemoteEndPoint}");
             }
             finally
             {
@@ -48,7 +50,7 @@ namespace Server
                 Close();
             }
         }
-
+ 
         // чтение входящего сообщения и преобразование в строку
         private string GetMessage()
         {
@@ -61,10 +63,10 @@ namespace Server
                 builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
             }
             while (Stream.DataAvailable);
-
+ 
             return builder.ToString();
         }
-
+ 
         // закрытие подключения
         protected internal void Close()
         {
@@ -75,15 +77,21 @@ namespace Server
         }
         protected internal void HandleMessage(string json)
         {
+            string user = "";
+            if (userName == null) user = "NOT_AUTHORIZATED";
+            else user = userName;
+            
             ISerializable command = null;
             if (AuthReg.CanDeserialize(json))
             {
                 command = AuthReg.Deserialize(json);
-            }
-            else if (Message.CanDeserialize(json))
+                Console.WriteLine($"Пришла команда от {user} - {client.Client.RemoteEndPoint} типа AuthReg");
+            } else if (Message.CanDeserialize(json))
             {
                 command = Message.Deserialize(json);
+                Console.WriteLine($"Пришла команда от {user} - {client.Client.RemoteEndPoint} типа Message");
             }
+            Console.WriteLine(json);
             command.Execute(this);
         }
 
@@ -92,7 +100,7 @@ namespace Server
             byte[] data = Encoding.Unicode.GetBytes(message);
             Stream.Write(data, 0, data.Length);
         }
-
+      
         // отправка файла
         public void SendFile()
         {

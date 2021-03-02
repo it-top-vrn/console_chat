@@ -2,19 +2,21 @@
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-using Server;
-using Server.JSON;
 
 namespace ConsoleChat
 {
     public class ServerConnection
     {
-        static string userName;
-        private const string host = "127.0.0.1";
+        private const string host = "localhost";
         private const int port = 8888;
-        static TcpClient client;
-        static NetworkStream stream;
-
+        
+        public string UserName { private set; get; }
+        public bool IsConnected { private set; get; }
+        
+        public TcpClient client;
+        public NetworkStream stream;
+        
+ 
         public ServerConnection()
         {
             client = new TcpClient();
@@ -27,6 +29,7 @@ namespace ConsoleChat
                 Thread receiveThread = new Thread(ReceiveMessage);
                 receiveThread.Start(); //старт потока
                 Console.WriteLine("Подключение к серверу прошло успешно");
+                IsConnected = true;
             }
             catch (Exception ex)
             {
@@ -41,9 +44,8 @@ namespace ConsoleChat
             Console.WriteLine("Сообщение было успешно отправлено");
             Console.WriteLine(message);
         }
-
         // получение сообщений
-        static void ReceiveMessage()
+        public void ReceiveMessage()
         {
             while (true)
             {
@@ -58,7 +60,7 @@ namespace ConsoleChat
                         builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
                     }
                     while (stream.DataAvailable);
-
+ 
                     string message = builder.ToString();
                     Console.WriteLine(message);//вывод сообщения
                 }
@@ -70,13 +72,14 @@ namespace ConsoleChat
                 }
             }
         }
-
-        static void Disconnect()
+ 
+        public void Disconnect()
         {
-            if (stream != null)
+            if(stream!=null)
                 stream.Close();//отключение потока
-            if (client != null)
+            if(client!=null)
                 client.Close();//отключение клиента
+            IsConnected = false;
             Environment.Exit(0); //завершение процесса
         }
     }

@@ -11,6 +11,7 @@ namespace Server
         {
             Server server = new Server();
             server.Listen();
+            server.ListenServerCommands();
         }
     }
 }
