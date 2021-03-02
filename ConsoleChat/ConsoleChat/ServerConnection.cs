@@ -7,11 +7,15 @@ namespace ConsoleChat
 {
     public class ServerConnection
     {
-        static string userName;
         private const string host = "localhost";
         private const int port = 8888;
-        static TcpClient client;
-        static NetworkStream stream;
+        
+        public string UserName { private set; get; }
+        public bool IsConnected { private set; get; }
+        
+        public TcpClient client;
+        public NetworkStream stream;
+        
  
         public ServerConnection()
         {
@@ -25,6 +29,7 @@ namespace ConsoleChat
                 Thread receiveThread = new Thread(ReceiveMessage);
                 receiveThread.Start(); //старт потока
                 Console.WriteLine("Подключение к серверу прошло успешно");
+                IsConnected = true;
             }
             catch (Exception ex)
             {
@@ -40,7 +45,7 @@ namespace ConsoleChat
             Console.WriteLine(message);
         }
         // получение сообщений
-        static void ReceiveMessage()
+        public void ReceiveMessage()
         {
             while (true)
             {
@@ -68,13 +73,14 @@ namespace ConsoleChat
             }
         }
  
-        static void Disconnect()
+        public void Disconnect()
         {
             if(stream!=null)
                 stream.Close();//отключение потока
             if(client!=null)
                 client.Close();//отключение клиента
-            Environment.Exit(0); //завершение процесса
+            IsConnected = false;
+            //Environment.Exit(0); //завершение процесса
         }
     }
 }

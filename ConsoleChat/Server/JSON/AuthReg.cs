@@ -1,4 +1,5 @@
-﻿using System.Data.SqlTypes;
+﻿using System;
+using System.Data.SqlTypes;
 using Newtonsoft.Json;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 
@@ -26,11 +27,13 @@ namespace Server.JSON
             if (TypeOfCommand == AuthRegTypeOfCommand.Authorization)
             {
                 // должна быть авторизация
-                throw new SqlNullValueException("Авторизация не реализована. Нет бд");
+                Console.WriteLine("Авторизация не реализована. Нет бд");
+                //throw new SqlNullValueException("Авторизация не реализована. Нет бд");
             } else if (TypeOfCommand == AuthRegTypeOfCommand.Registration)
             {
                 // должна быть регистрация
-                throw new SqlNullValueException("Регистрация не реализована. Нет бд");
+                Console.WriteLine("Регистрация не реализована. Нет бд");
+                //throw new SqlNullValueException("Регистрация не реализована. Нет бд");
             }
         }
         public static bool CanDeserialize(string json)

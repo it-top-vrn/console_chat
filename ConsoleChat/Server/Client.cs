@@ -10,7 +10,7 @@ namespace Server
         protected internal string Id { get; }
         protected internal NetworkStream Stream {get; private set;}
         public string userName;
-        TcpClient client;
+        public TcpClient client;
         public Server server; // объект сервера
  
         public Client(TcpClient tcpClient, Server server)
@@ -31,7 +31,6 @@ namespace Server
                 {
                     string message;
                     message = GetMessage();
-                    Console.WriteLine(message);
                     HandleMessage(message);
                     //server.BroadcastMessage(message, Id);
 
@@ -39,7 +38,10 @@ namespace Server
             }
             catch(Exception e)
             {
-                Console.WriteLine(e.Message);
+                string user = "";
+                if (userName == null) user = "NOT_AUTHORIZATED";
+                else user = userName;
+                Console.WriteLine($"Клиент {user} - {client.Client.RemoteEndPoint}");
             }
             finally
             {
@@ -75,14 +77,21 @@ namespace Server
         }
         protected internal void HandleMessage(string json)
         {
+            string user = "";
+            if (userName == null) user = "NOT_AUTHORIZATED";
+            else user = userName;
+            
             ISerializable command = null;
             if (AuthReg.CanDeserialize(json))
             {
                 command = AuthReg.Deserialize(json);
+                Console.WriteLine($"Пришла команда от {user} - {client.Client.RemoteEndPoint} типа AuthReg");
             } else if (Message.CanDeserialize(json))
             {
                 command = Message.Deserialize(json);
+                Console.WriteLine($"Пришла команда от {user} - {client.Client.RemoteEndPoint} типа Message");
             }
+            Console.WriteLine(json);
             command.Execute(this);
         }
 

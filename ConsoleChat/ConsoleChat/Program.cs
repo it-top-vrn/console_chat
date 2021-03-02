@@ -4,10 +4,11 @@ namespace ConsoleChat
 {
     class Program
     {
+        public static ServerConnection ServerConnection;
         static void Main(string[] args)
         {
-            ServerConnection serverConnection = new ServerConnection();
-            AutorizationForm autoriz = new AutorizationForm(serverConnection);
+            ServerConnection = new ServerConnection();
+            AutorizationForm autoriz = new AutorizationForm(ServerConnection);
             autoriz.Initialize();
         }
     }

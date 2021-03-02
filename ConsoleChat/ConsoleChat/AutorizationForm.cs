@@ -89,6 +89,10 @@ namespace ConsoleChat
 
 		private void Button_OKOnClicked(TextField login, TextField password)
 		{
+			if (!_serverConnection.IsConnected)
+			{
+				_serverConnection = new ServerConnection();
+			}
 			AuthReg authReg = new AuthReg();
 			authReg.Login = login.Text.ToString();
 			authReg.Password = password.Text.ToString();
