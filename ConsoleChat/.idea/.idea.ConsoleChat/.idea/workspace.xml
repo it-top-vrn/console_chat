@@ -25,6 +25,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f31a6f5e-3aa0-4c03-8a29-3ee3f45bc255" name="Default Changelist" comment="">
+
       <change afterPath="$PROJECT_DIR$/ConsoleChat/JSON/apiDB.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Server/JSON/apiDB.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/contentModel.xml" afterDir="false" />

@@ -9,10 +9,6 @@ namespace ConsoleChat
 	class RegistrationForm
 	{
 		private ServerConnection _serverConnection;
-		public RegistrationForm(ServerConnection serverConnection)
-		{
-			_serverConnection = serverConnection;
-		}
 		public void Initialize()
 		{
 
@@ -95,6 +91,7 @@ namespace ConsoleChat
 
 		private void Button_OKOnClicked(TextField login, TextField password)
 		{
+			_serverConnection = new ServerConnection();
 			AuthReg authReg = new AuthReg();
 			authReg.Login = login.Text.ToString();
 			authReg.Password = password.Text.ToString();
@@ -105,7 +102,7 @@ namespace ConsoleChat
 
 		private void AutorizationForm()
         {
-			AutorizationForm autoriz = new AutorizationForm(_serverConnection);
+			AutorizationForm autoriz = new AutorizationForm();
 			autoriz.Initialize();
         }
 	}
