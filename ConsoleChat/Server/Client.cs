@@ -100,5 +100,32 @@ namespace Server
             byte[] data = Encoding.Unicode.GetBytes(message);
             Stream.Write(data, 0, data.Length);
         }
+      
+        // отправка файла
+        public void SendFile()
+        {
+            Console.WriteLine("Укажите полностью путь к файлу (включая расширение):");
+            string pathToFile = Console.ReadLine();
+            Console.WriteLine("Укажите кому хотите отправить сообщение:");
+            string recepient = Console.ReadLine();
+            FTPserver ftp = new FTPserver();
+            ftp.FTPUploadFile(pathToFile, userName, recepient);
+            //pathToFile = ftp.RenameFile(pathToFile, userName, recepient);
+            Message jsonFile = new Message { TypeofCommand = MessageTypeofCommand.FileMessage, Sender = userName, Recepient = recepient, FileName = pathToFile };
+            byte[] data2 = Encoding.Unicode.GetBytes(jsonFile.Serialize());
+            Stream.Write(data2, 0, data2.Length);
+        }
+
+        public void FTPServerContents()
+        {
+            FTPserver ftp = new FTPserver();
+            ftp.ServerContents();
+        }
+
+        public void DownLoadFile(string filename)
+        {
+            FTPserver ftp = new FTPserver();
+            ftp.FTPDownloadFile(filename);
+        }
     }
 }

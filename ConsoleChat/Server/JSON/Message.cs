@@ -41,6 +41,7 @@ namespace Server.JSON
                         if (TypeofCommand == MessageTypeofCommand.FileMessage)
                         {
                             Console.WriteLine($"Отправка файла от {Sender} к {Recepient}");
+                            client.DownLoadFile(FileName);
                         }
                         else
                         {
@@ -71,5 +72,4 @@ namespace Server.JSON
             return JsonConvert.DeserializeObject<Message>(json);
         }
     }
-    
 }
