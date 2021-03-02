@@ -80,7 +80,7 @@ namespace ConsoleChat
             if(client!=null)
                 client.Close();//отключение клиента
             IsConnected = false;
-            //Environment.Exit(0); //завершение процесса
+            Environment.Exit(0); //завершение процесса
         }
     }
 }

@@ -35,6 +35,7 @@ namespace Server.JSON
                 Console.WriteLine("Регистрация не реализована. Нет бд");
                 //throw new SqlNullValueException("Регистрация не реализована. Нет бд");
             }
+            client.SendMessage(Serialize());
         }
         public static bool CanDeserialize(string json)
         {

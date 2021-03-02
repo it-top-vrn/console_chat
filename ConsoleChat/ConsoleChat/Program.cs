@@ -4,11 +4,9 @@ namespace ConsoleChat
 {
     class Program
     {
-        public static ServerConnection ServerConnection;
         static void Main(string[] args)
         {
-            ServerConnection = new ServerConnection();
-            AutorizationForm autoriz = new AutorizationForm(ServerConnection);
+            AutorizationForm autoriz = new AutorizationForm();
             autoriz.Initialize();
         }
     }
