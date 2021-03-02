@@ -25,17 +25,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f31a6f5e-3aa0-4c03-8a29-3ee3f45bc255" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ConsoleChat/JSON/AuthReg.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConsoleChat/JSON/ISerializeble.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConsoleChat/JSON/Message.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConsoleChat/ServerConnection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleChat/AutorizationForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/AutorizationForm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleChat/ConsoleChat.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/ConsoleChat.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleChat/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleChat/RegistrationForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/RegistrationForm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/Client.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleChat/ServerConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/ServerConnection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/JSON/AuthReg.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/JSON/AuthReg.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,11 +51,14 @@
       <option value="$PROJECT_DIR$/ConsoleChat/JSON/ISerializeble.cs" />
       <option value="$PROJECT_DIR$/ConsoleChat/JSON/Message.cs" />
       <option value="$PROJECT_DIR$/ConsoleChat/JSON/AuthReg.cs" />
-      <option value="$PROJECT_DIR$/ConsoleChat/RegistrationForm.cs" />
-      <option value="$PROJECT_DIR$/ConsoleChat/AutorizationForm.cs" />
-      <option value="$PROJECT_DIR$/ConsoleChat/Program.cs" />
-      <option value="$PROJECT_DIR$/ConsoleChat/ServerConnection.cs" />
+      <option value="$PROJECT_DIR$/Server/Program.cs" />
       <option value="$PROJECT_DIR$/Server/Client.cs" />
+      <option value="$PROJECT_DIR$/Server/Server.cs" />
+      <option value="$PROJECT_DIR$/ConsoleChat/ServerConnection.cs" />
+      <option value="$PROJECT_DIR$/ConsoleChat/Program.cs" />
+      <option value="$PROJECT_DIR$/ConsoleChat/AutorizationForm.cs" />
+      <option value="$PROJECT_DIR$/ConsoleChat/RegistrationForm.cs" />
+      <option value="$PROJECT_DIR$/Server/JSON/AuthReg.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1oWTPRmWCso738rMhVkoABRSp7v" />
@@ -146,6 +144,7 @@
       <workItem from="1613401402526" duration="934000" />
       <workItem from="1613753748887" duration="1406000" />
       <workItem from="1614430019721" duration="2806000" />
+      <workItem from="1614701908737" duration="3806000" />
     </task>
     <servers />
   </component>
@@ -168,37 +167,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ConsoleChat/Program.cs</url>
-          <line>9</line>
-          <properties documentPath="C:\AnSt\console_chat\ConsoleChat\ConsoleChat\Program.cs" initialLine="9" containingFunctionPresentation="method 'Main'">
-            <startOffsets>
-              <option value="197" />
-            </startOffsets>
-            <endOffsets>
-              <option value="263" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ConsoleChat/AutorizationForm.cs</url>
-          <line>13</line>
-          <properties documentPath="C:\AnSt\console_chat\ConsoleChat\ConsoleChat\AutorizationForm.cs" initialLine="13" containingFunctionPresentation="constructor 'AutorizationForm'">
-            <startOffsets>
-              <option value="290" />
-            </startOffsets>
-            <endOffsets>
-              <option value="327" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
