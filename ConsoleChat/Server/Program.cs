@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading;
 
 namespace Server
 {
@@ -6,7 +9,8 @@ namespace Server
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Server server = new Server();
+            server.Listen();
         }
     }
 }
