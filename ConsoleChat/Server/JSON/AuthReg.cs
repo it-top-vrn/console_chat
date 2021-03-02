@@ -1,4 +1,5 @@
-﻿using System.Data.SqlTypes;
+using System;
+using System.Data.SqlTypes;
 using Newtonsoft.Json;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 using api_database;
@@ -48,6 +49,7 @@ namespace Server.JSON
                     Success = false;
                 }
             }
+            client.SendMessage(Serialize());
         }
         public static bool CanDeserialize(string json)
         {
