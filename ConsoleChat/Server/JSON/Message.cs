@@ -2,6 +2,7 @@
 using System.Data.SqlTypes;
 using Newtonsoft.Json;
 using JsonSerializer = System.Text.Json.JsonSerializer;
+using api_database;
 
 namespace Server.JSON
 {
@@ -51,9 +52,9 @@ namespace Server.JSON
                 }
             } else if (TypeofCommand == MessageTypeofCommand.GetMessages)
             {
-                // требуется запросы к бд
-                Console.WriteLine($"{Sender} хочет получить {AmountMessages} сообщений от {Recepient}");
-                throw new SqlNullValueException(" не реализована. Нет бд");
+                var bufferMessage= DBconnection.GetMessage(Sender, Recepient, AmountMessages);
+                TextMessage = JsonSerializer.Serialize(bufferMessage);
+                client.SendMessage(Serialize());
             }
         }
 

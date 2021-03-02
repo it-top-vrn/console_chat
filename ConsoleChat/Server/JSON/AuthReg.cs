@@ -1,6 +1,7 @@
 ﻿using System.Data.SqlTypes;
 using Newtonsoft.Json;
 using JsonSerializer = System.Text.Json.JsonSerializer;
+using api_database;
 
 namespace Server.JSON
 {
@@ -15,6 +16,7 @@ namespace Server.JSON
         public string Login { get; set; }
         public string Password { get; set; }
         public bool Success { get; set; }
+        public string Message { get; set; }
         
         public string Serialize()
         {
@@ -25,12 +27,26 @@ namespace Server.JSON
         {
             if (TypeOfCommand == AuthRegTypeOfCommand.Authorization)
             {
-                // должна быть авторизация
-                throw new SqlNullValueException("Авторизация не реализована. Нет бд");
+                Message = DBconnection.Authorization(Login, Password);
+                if (Message == "Authorization success")
+                {
+                    Success = true;
+                }
+                else if (Message == "Authorization fail")
+                {
+                    Success = false;
+                }
             } else if (TypeOfCommand == AuthRegTypeOfCommand.Registration)
             {
-                // должна быть регистрация
-                throw new SqlNullValueException("Регистрация не реализована. Нет бд");
+                Message = DBconnection.Registration(Login, Password);
+                if (Message == "Registration success")
+                {
+                    Success = true;
+                }
+                else if (Message == "Registration fail")
+                {
+                    Success = false;
+                }
             }
         }
         public static bool CanDeserialize(string json)
