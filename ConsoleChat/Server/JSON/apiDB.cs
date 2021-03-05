@@ -164,5 +164,29 @@ namespace api_database
             }
             return messages;
         }
+        
+        public static List<string> GetUserList ()
+        {
+            var connection = DBconnection.Connection();
+            var userList = new List<string>();
+            if (connection.success)
+            {
+                var sql = "SELECT registration_login FROM t_registration";
+                var result = DBconnection.SelectQuery(sql, connection.connection);
+                if(result.HasRows)
+                {
+                    while (result.Read())
+                    {
+                        userList.Add(result.GetValue(0).ToString());
+                    }
+                }
+            }
+            else
+            {
+                userList.Add("Не удалось подключиться к БД");
+                return userList;
+            }
+            return userList;
+        }
     }
 }

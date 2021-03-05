@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Data.SqlTypes;
 using Newtonsoft.Json;
 using JsonSerializer = System.Text.Json.JsonSerializer;
@@ -18,6 +19,7 @@ namespace Server.JSON
         public string Password { get; set; }
         public bool Success { get; set; }
         public string Message { get; set; }
+        public List<string> UserList { get; set; }
         
         public string Serialize()
         {
@@ -31,6 +33,7 @@ namespace Server.JSON
                 Message = DBconnection.Authorization(Login, Password);
                 if (Message == "Authorization success")
                 {
+                    UserList = DBconnection.GetUserList();
                     Success = true;
                 }
                 else if (Message == "Authorization fail")
