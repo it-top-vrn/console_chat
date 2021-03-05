@@ -20,7 +20,7 @@ string Authorization (string login, string password) {
 
 ### 3. Отправка нового сообщения
 ```
-(string loginSender, string loginRecipient, string textMessage, string typeMessage = "text") {
+ bool PostMessage (string loginSender, string loginRecipient, string textMessage, string typeMessage = "text") {
     return message;
 }
 ```
@@ -35,3 +35,12 @@ Dictionary<DateTime, List<string>> GetMessage (string loginSender, string loginR
 ```
 
 Функция принимает логины отправителя / получателя и количество сообщений в качестве аргументов и возвращает `Dictionary<DateTime, List<string>>` с датой в качестве ключа, а в качестве значения `List<string>` с двумя элементами (первый элемент сообщение, а второй элемент тип сообшения).
+
+### 5. Получение списка пользователей
+```
+List<string> GetUserList () {
+
+}
+```
+
+Функция возвращает `List<string>` с датой в качестве ключа, а в качестве значения `List<string>` со списком пользователей.
