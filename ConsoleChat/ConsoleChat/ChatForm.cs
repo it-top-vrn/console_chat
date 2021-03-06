@@ -10,7 +10,6 @@ namespace ConsoleChat
 	{
 		public void Initialize()
 		{
-
 			Application.Init();
 			var top = Application.Top;
 
@@ -90,6 +89,7 @@ namespace ConsoleChat
 			win_ShowDialogs.Add(
 				list_Dialogs);
 
+			MessageBox.Query("Получение файла", "rqewrwrewr",  "СКАЧАТЬ", "ОТМЕНА");
 			Application.Run();
 		}
 		void ListDialogAdd()
