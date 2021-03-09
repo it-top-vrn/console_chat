@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.SqlTypes;
 using Newtonsoft.Json;
+using Terminal.Gui;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Server.JSON
@@ -29,10 +30,15 @@ namespace Server.JSON
 
         public void Execute()
         {
-            if (TypeofCommand == MessageTypeofCommand.TextMessage || TypeofCommand == MessageTypeofCommand.FileMessage)
+            if (TypeofCommand == MessageTypeofCommand.TextMessage)
             {
                 
-            } else if (TypeofCommand == MessageTypeofCommand.GetMessages)
+            } else if (TypeofCommand == MessageTypeofCommand.FileMessage)
+            {
+                var result = MessageBox.Query("Получение файла", FileName);
+
+            } 
+            else if (TypeofCommand == MessageTypeofCommand.GetMessages)
             {
                 
             }
