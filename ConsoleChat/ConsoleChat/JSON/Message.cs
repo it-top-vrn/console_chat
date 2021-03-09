@@ -35,7 +35,14 @@ namespace Server.JSON
                 
             } else if (TypeofCommand == MessageTypeofCommand.FileMessage)
             {
-                var result = MessageBox.Query("Получение файла", FileName);
+                var result = MessageBox.Query("Получение файла", $"Имя файла: {FileName}", "СКАЧАТЬ", "ОТМЕНА");
+                if (result == 1)
+                {
+                    // Скачиваем
+                } else
+                {
+                    // Не скачиваем
+                }
 
             } 
             else if (TypeofCommand == MessageTypeofCommand.GetMessages)

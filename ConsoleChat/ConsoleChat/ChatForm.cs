@@ -89,7 +89,7 @@ namespace ConsoleChat
 			win_ShowDialogs.Add(
 				list_Dialogs);
 
-			MessageBox.Query("Получение файла", "rqewrwrewr",  "СКАЧАТЬ", "ОТМЕНА");
+			
 			Application.Run();
 		}
 		void ListDialogAdd()
