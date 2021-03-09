@@ -5,9 +5,9 @@
       <e p="ConsoleChat" t="IncludeRecursive">
         <e p="AutorizationForm.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
+        <e p="ChatForm.cs" t="Include" />
         <e p="ConsoleChat.csproj" t="IncludeRecursive" />
         <e p="JSON" t="Include">
-          <e p="apiDB.cs" t="Include" />
           <e p="AuthReg.cs" t="Include" />
           <e p="ISerializeble.cs" t="Include" />
           <e p="Message.cs" t="Include" />
@@ -31,7 +31,8 @@
         <e p="JSON" t="Include">
           <e p="apiDB.cs" t="Include" />
           <e p="AuthReg.cs" t="Include" />
-          <e p="ISerializeble.cs" t="Include" />
+          <e p="FTPserver.cs" t="Include" />
+          <e p="ISerializable.cs" t="Include" />
           <e p="Message.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">

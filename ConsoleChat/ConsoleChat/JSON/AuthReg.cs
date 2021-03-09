@@ -1,5 +1,9 @@
-﻿using System.Data.SqlTypes;
+﻿using System.Collections.Generic;
+using System.Data.SqlTypes;
+using System.IO;
+using ConsoleChat;
 using Newtonsoft.Json;
+using Terminal.Gui;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Server.JSON
@@ -16,6 +20,7 @@ namespace Server.JSON
         public string Password { get; set; }
         public bool Success { get; set; }
         public string Message { get; set; }
+        public List<string> UserList { get; set; }
         
         public string Serialize()
         {
@@ -24,12 +29,19 @@ namespace Server.JSON
 
         public void Execute()
         {
-            if (TypeOfCommand == AuthRegTypeOfCommand.Authorization)
+            if (TypeOfCommand == AuthRegTypeOfCommand.Authorization || TypeOfCommand == AuthRegTypeOfCommand.Registration)
             {
-                
-            } else if (TypeOfCommand == AuthRegTypeOfCommand.Registration)
-            {
-                
+                if (Success)
+                {
+                    
+                    Program.userName = Login;
+                    Program.userList = UserList;
+                    new ChatForm().Initialize();
+                }
+                else
+                {
+                    MessageBox.Query("ERROR", Message, "YES");
+                }
             }
         }
         public static bool CanDeserialize(string json)

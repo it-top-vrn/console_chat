@@ -1,12 +1,16 @@
 ﻿using System;
+using System.IO;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using Server.JSON;
 
 namespace ConsoleChat
 {
     public class ServerConnection
     {
+        public static ServerConnection instance;
+        
         private const string host = "localhost";
         private const int port = 8888;
         
@@ -19,6 +23,7 @@ namespace ConsoleChat
  
         public ServerConnection()
         {
+            instance = this;
             client = new TcpClient();
             try
             {
@@ -62,6 +67,11 @@ namespace ConsoleChat
                     while (stream.DataAvailable);
  
                     string message = builder.ToString();
+                    HandleMessage(message);
+                    File.Create("test").Close();
+                    StreamWriter writer = new StreamWriter("test", true);
+                    writer.WriteLine(message);
+                    writer.Close();
                     Console.WriteLine(message);//вывод сообщения
                 }
                 catch
@@ -73,6 +83,20 @@ namespace ConsoleChat
             }
         }
  
+        protected internal void HandleMessage(string json)
+        {
+            
+            ISerializable command = null;
+            if (AuthReg.CanDeserialize(json))
+            {
+                command = AuthReg.Deserialize(json);
+            } else if (Message.CanDeserialize(json))
+            {
+                command = Message.Deserialize(json);
+            }
+            Console.WriteLine(json);
+            command.Execute();
+        }
         public void Disconnect()
         {
             if(stream!=null)

@@ -74,6 +74,7 @@ namespace Server
                 Stream.Close();
             if (client != null)
                 client.Close();
+            
         }
         protected internal void HandleMessage(string json)
         {

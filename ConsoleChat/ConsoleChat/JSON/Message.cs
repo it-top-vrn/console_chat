@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlTypes;
+using ConsoleChat;
 using Newtonsoft.Json;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 
@@ -34,7 +36,11 @@ namespace Server.JSON
                 
             } else if (TypeofCommand == MessageTypeofCommand.GetMessages)
             {
-                
+                Dictionary<DateTime, List<string>> dictionary = JsonConvert.DeserializeObject<Dictionary<DateTime, List<string>>>(TextMessage);
+                foreach (var element in dictionary)
+                {
+                    ChatForm.instance.AddMessage($"[{element.Key}] [{Recepient}]: {element.Value[0]}");
+                }
             }
         }
 

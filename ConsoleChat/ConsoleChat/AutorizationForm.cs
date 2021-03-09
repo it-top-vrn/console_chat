@@ -31,7 +31,7 @@ namespace ConsoleChat
 				X = 6,
 				Y = 2
 			};
-			var password = new Label("Password: ")
+			var password = new Label("Passwordklk: ")
 			{
 				X = 3,
 				Y = 5

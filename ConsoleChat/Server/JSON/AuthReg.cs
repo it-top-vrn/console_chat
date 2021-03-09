@@ -34,7 +34,9 @@ namespace Server.JSON
                 if (Message == "Authorization success")
                 {
                     UserList = DBconnection.GetUserList();
+                    UserList.Remove(Login);
                     Success = true;
+                    client.userName = Login;
                 }
                 else if (Message == "Authorization fail")
                 {
@@ -45,7 +47,10 @@ namespace Server.JSON
                 Message = DBconnection.Registration(Login, Password);
                 if (Message == "Registration success")
                 {
+                    UserList = DBconnection.GetUserList();
+                    UserList.Remove(Login);
                     Success = true;
+                    client.userName = Login;
                 }
                 else if (Message == "Registration fail")
                 {
@@ -53,6 +58,10 @@ namespace Server.JSON
                 }
             }
             client.SendMessage(Serialize());
+            if (!Success)
+            {
+                client.server.RemoveConnection(client.Id);
+            }
         }
         public static bool CanDeserialize(string json)
         {

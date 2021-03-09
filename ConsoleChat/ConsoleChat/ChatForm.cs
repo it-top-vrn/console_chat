@@ -1,14 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Server.JSON;
 using Terminal.Gui;
 
 namespace ConsoleChat
 {
     class ChatForm
     {
-		public void Initialize()
-		{
+	    public static ChatForm instance;
+
+	    private List<string> messages;
+	    private string selectedUser;
+	    private ServerConnection _serverConnection;
+	    
+	    public void Initialize()
+	    {
+		    _serverConnection = ServerConnection.instance;
 			Application.Init();
 			var top = Application.Top;
 
@@ -28,8 +36,8 @@ namespace ConsoleChat
 				Width = 50,
 				Height = Dim.Fill()
 			};
-			List<string> list_message = new List<string>();
-			var list_Message = new ListView(list_message)
+			messages = new List<string>();
+			var list_Message = new ListView(messages)
 			{
 				X = 0,
 				Y = 0,
@@ -61,17 +69,30 @@ namespace ConsoleChat
 				Width = 10,
 				Height = 1
 			};
-			List<string> list_dialogs = new List<string>();
-			var list_Dialogs = new ListView()
+			
+			var list_Dialogs = new ListView(Program.userList)
 			{
 				X = 1,
 				Y = 1,
 				Width = Dim.Fill(),
 				Height = Dim.Fill(),
 			};
+			list_Dialogs.MouseClick += (a) =>
+			{
+				selectedUser = Program.userList[list_Dialogs.SelectedItem];
+				Message message = new Message();
+				message.TypeofCommand = MessageTypeofCommand.GetMessages;
+				message.Sender = Program.userName;
+				message.Recepient = selectedUser;
+				message.AmountMessages = 10;
+				ClearChat();
+				_serverConnection.SendMessage(message.Serialize());
+				
+				
+			};
 
 			but_Enter.Clicked += () => {
-				list_message.Add($"me: {MessageText.Text.ToString()}");
+				messages.Add($"me: {MessageText.Text.ToString()}");
 				MessageText.Text = "";
 			};
 
@@ -91,5 +112,15 @@ namespace ConsoleChat
 
 			Application.Run();
 		}
+
+	    public void ClearChat()
+	    {
+		    messages.Clear();
+	    }
+
+	    public void AddMessage(string message)
+	    {
+		    messages.Add(message);
+	    }
 	}
 }
