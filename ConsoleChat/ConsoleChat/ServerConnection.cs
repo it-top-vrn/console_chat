@@ -3,7 +3,9 @@ using System.IO;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using Server.JSON;
+using Terminal.Gui;
 
 namespace ConsoleChat
 {
@@ -31,8 +33,7 @@ namespace ConsoleChat
                 stream = client.GetStream(); // получаем поток
 
                 // запускаем новый поток для получения данных
-                Thread receiveThread = new Thread(ReceiveMessage);
-                receiveThread.Start(); //старт потока
+                
                 Console.WriteLine("Подключение к серверу прошло успешно");
                 IsConnected = true;
             }
@@ -50,37 +51,41 @@ namespace ConsoleChat
             Console.WriteLine(message);
         }
         // получение сообщений
-        public void ReceiveMessage()
+        public async void GetMessage()
         {
-            while (true)
+            await Task.Run(() =>
             {
-                try
+                while (true)
                 {
-                    byte[] data = new byte[64]; // буфер для получаемых данных
-                    StringBuilder builder = new StringBuilder();
-                    int bytes = 0;
-                    do
+                    try
                     {
-                        bytes = stream.Read(data, 0, data.Length);
-                        builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
-                    }
-                    while (stream.DataAvailable);
+                        byte[] data = new byte[64]; // буфер для получаемых данных
+                        StringBuilder builder = new StringBuilder();
+                        int bytes = 0;
+                        do
+                        {
+                            bytes = stream.Read(data, 0, data.Length);
+                            builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
+                        }
+                        while (stream.DataAvailable);
  
-                    string message = builder.ToString();
-                    HandleMessage(message);
-                    File.Create("test").Close();
-                    StreamWriter writer = new StreamWriter("test", true);
-                    writer.WriteLine(message);
-                    writer.Close();
-                    Console.WriteLine(message);//вывод сообщения
+                        string message = builder.ToString();
+                        HandleMessage(message);
+                        File.Create("test").Close();
+                        StreamWriter writer = new StreamWriter("test", true);
+                        writer.WriteLine(message);
+                        writer.Close();
+                        Console.WriteLine(message);//вывод сообщения
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Подключение прервано!"); //соединение было прервано
+                        Console.ReadLine();
+                        Disconnect();
+                    }
                 }
-                catch
-                {
-                    Console.WriteLine("Подключение прервано!"); //соединение было прервано
-                    Console.ReadLine();
-                    Disconnect();
-                }
-            }
+            });
+            
         }
  
         protected internal void HandleMessage(string json)
@@ -96,7 +101,12 @@ namespace ConsoleChat
             }
             Console.WriteLine(json);
             
-            command.Execute();
+            Application.MainLoop.Invoke(() =>
+            {
+                command.Execute();
+            });
+            
+            
         }
         public void Disconnect()
         {

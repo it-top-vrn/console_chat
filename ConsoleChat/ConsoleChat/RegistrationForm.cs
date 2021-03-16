@@ -9,9 +9,9 @@ namespace ConsoleChat
 	class RegistrationForm
 	{
 		private ServerConnection _serverConnection;
-		public void Initialize()
+		public void Initialize(ServerConnection serverConnection)
 		{
-
+			_serverConnection = serverConnection;
 			Application.Init();
 			var top = Application.Top;
 
@@ -103,7 +103,7 @@ namespace ConsoleChat
 		private void AutorizationForm()
         {
 			AutorizationForm autoriz = new AutorizationForm();
-			autoriz.Initialize();
+			autoriz.Initialize(_serverConnection);
         }
 	}
 }

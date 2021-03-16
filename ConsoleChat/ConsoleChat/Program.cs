@@ -10,7 +10,10 @@ namespace ConsoleChat
         public static List<string> userList;
         static void Main(string[] args)
         {
-            new AutorizationForm().Initialize();
+            ServerConnection _serverConnection = new ServerConnection();
+            _serverConnection.GetMessage();
+            
+            new AutorizationForm().Initialize(_serverConnection);
             
         }
     }

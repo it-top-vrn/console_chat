@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlTypes;
 using ConsoleChat;
 using Newtonsoft.Json;
+using Terminal.Gui;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Server.JSON
@@ -38,10 +39,15 @@ namespace Server.JSON
             } else if (TypeofCommand == MessageTypeofCommand.GetMessages)
             {
                 Dictionary<DateTime, List<string>> dictionary = JsonConvert.DeserializeObject<Dictionary<DateTime, List<string>>>(TextMessage);
+                string str = "";
                 foreach (var element in dictionary)
                 {
-                    ChatForm.instance.AddMessage($"[{element.Key}] [{Recepient}]: {element.Value[0]}");
+                    str += $"[{element.Key}] [{Recepient}]: {element.Value[0]}\n";
+                    //ChatForm.instance.AddMessage($"[{element.Key}] [{Recepient}]: {element.Value[0]}");
                 }
+
+                //MessageBox.Query("str", str, "OK");
+                ChatForm.instance.AddMessage(str);
             }
         }
 

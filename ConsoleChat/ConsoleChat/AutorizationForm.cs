@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Server.JSON;
 using Terminal.Gui;
 
@@ -9,9 +10,11 @@ namespace ConsoleChat
     class AutorizationForm
     {
 	    private ServerConnection _serverConnection;
-	    public void Initialize()
-		{
-			Application.Init();
+	    public void Initialize(ServerConnection serverConnection)
+	    {
+		    _serverConnection = serverConnection;
+		    
+		    Application.Init();
 			var top = Application.Top;
 
 			var win = new Window("AUTORIZATION")
@@ -75,9 +78,7 @@ namespace ConsoleChat
 			button_Registration.Clicked += Clicked;
 			void Clicked() => Registration_Form();
 
-			win.Add(
-				login, password, loginText, passText, button_OK, button_Cansel, button_Registration
-			);
+			win.Add(login, password, loginText, passText, button_OK, button_Cansel, button_Registration);
 
 			Application.Run();
 			
@@ -85,7 +86,6 @@ namespace ConsoleChat
 
 		private void Button_OKOnClicked(TextField login, TextField password)
 		{
-			_serverConnection = new ServerConnection();
 			AuthReg authReg = new AuthReg();
 			authReg.Login = login.Text.ToString();
 			authReg.Password = password.Text.ToString();
@@ -96,7 +96,7 @@ namespace ConsoleChat
 		private void Registration_Form()
         {
 			RegistrationForm reg = new RegistrationForm();
-			reg.Initialize();
+			reg.Initialize(_serverConnection);
         }
 	}
 }

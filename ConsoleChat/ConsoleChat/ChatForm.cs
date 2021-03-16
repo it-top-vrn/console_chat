@@ -14,8 +14,10 @@ namespace ConsoleChat
 	    private string selectedUser;
 	    private ServerConnection _serverConnection;
 	    
-	    public void Initialize()
+	    public void Initialize(ServerConnection serverConnection)
 	    {
+		    instance = this;
+		    _serverConnection = serverConnection;
 		    _serverConnection = ServerConnection.instance;
 			Application.Init();
 			var top = Application.Top;
@@ -77,12 +79,9 @@ namespace ConsoleChat
 				Width = Dim.Fill(),
 				Height = Dim.Fill(),
 			};
-			int clicks = 0;
-			list_Dialogs.MouseClick += (a) =>
+			list_Dialogs.OpenSelectedItem += (a) =>
 			{
-				clicks++;
-				if(clicks > 1) { return; }
-				selectedUser = Program.userList[list_Dialogs.SelectedItem];
+				selectedUser = Program.userList[a.Item];
 				Message message = new Message();
 				message.TypeofCommand = MessageTypeofCommand.GetMessages;
 				message.Sender = selectedUser;
@@ -109,8 +108,7 @@ namespace ConsoleChat
 
 			win_ShowDialogs.Add(
 				list_Dialogs);
-
-
+			
 			Application.Run();
 		}
 
