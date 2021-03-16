@@ -2,6 +2,7 @@
 using System.Data.SqlTypes;
 using Newtonsoft.Json;
 using JsonSerializer = System.Text.Json.JsonSerializer;
+using System.Collections.Generic;
 using api_database;
 
 namespace Server.JSON
@@ -54,7 +55,9 @@ namespace Server.JSON
             } else if (TypeofCommand == MessageTypeofCommand.GetMessages)
             {
                 var bufferMessage= DBconnection.GetMessage(Sender, Recepient, AmountMessages);
-                TextMessage = JsonSerializer.Serialize(bufferMessage);
+
+                //TextMessage = JsonSerializer.Serialize(bufferMessage);
+                TextMessage = JsonConvert.SerializeObject(bufferMessage);
                 client.SendMessage(Serialize());
             }
         }
@@ -69,7 +72,16 @@ namespace Server.JSON
         }
         public static Message Deserialize(string json)
         {
-            return JsonConvert.DeserializeObject<Message>(json);
+            string json2 = "{\"TypeofCommand\":2,\"Sender\":\"test\",\"Recepient\":\"Alexis\",\"DateTime\":null,\"TextMessage\":null,\"FileName\":null,\"AmountMessages\":10}";
+            if (json == json2)
+            {
+                Console.WriteLine("стринги равны");
+            } else
+            {
+                Console.WriteLine("Стринги не равны");
+            }
+            //return JsonConvert.DeserializeObject<Message>(json);
+            return JsonConvert.DeserializeObject<Message>(json); ;
         }
     }
 }

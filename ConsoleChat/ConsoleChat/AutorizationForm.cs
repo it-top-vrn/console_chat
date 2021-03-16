@@ -11,7 +11,6 @@ namespace ConsoleChat
 	    private ServerConnection _serverConnection;
 	    public void Initialize()
 		{
-
 			Application.Init();
 			var top = Application.Top;
 
@@ -81,6 +80,7 @@ namespace ConsoleChat
 			);
 
 			Application.Run();
+			
 		}
 
 		private void Button_OKOnClicked(TextField login, TextField password)

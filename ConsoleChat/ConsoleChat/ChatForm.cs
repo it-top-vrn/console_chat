@@ -77,18 +77,19 @@ namespace ConsoleChat
 				Width = Dim.Fill(),
 				Height = Dim.Fill(),
 			};
+			int clicks = 0;
 			list_Dialogs.MouseClick += (a) =>
 			{
+				clicks++;
+				if(clicks > 1) { return; }
 				selectedUser = Program.userList[list_Dialogs.SelectedItem];
 				Message message = new Message();
 				message.TypeofCommand = MessageTypeofCommand.GetMessages;
-				message.Sender = Program.userName;
-				message.Recepient = selectedUser;
+				message.Sender = selectedUser;
+				message.Recepient = Program.userName;
 				message.AmountMessages = 10;
 				ClearChat();
 				_serverConnection.SendMessage(message.Serialize());
-				
-				
 			};
 
 			but_Enter.Clicked += () => {

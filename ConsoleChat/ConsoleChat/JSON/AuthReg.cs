@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.IO;
 using ConsoleChat;
@@ -29,13 +30,14 @@ namespace Server.JSON
 
         public void Execute()
         {
+            Console.WriteLine(TypeOfCommand.ToString());
             if (TypeOfCommand == AuthRegTypeOfCommand.Authorization || TypeOfCommand == AuthRegTypeOfCommand.Registration)
             {
                 if (Success)
                 {
-                    
                     Program.userName = Login;
                     Program.userList = UserList;
+                    Application.Shutdown();
                     new ChatForm().Initialize();
                 }
                 else

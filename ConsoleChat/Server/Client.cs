@@ -41,7 +41,7 @@ namespace Server
                 string user = "";
                 if (userName == null) user = "NOT_AUTHORIZATED";
                 else user = userName;
-                Console.WriteLine($"Клиент {user} - {client.Client.RemoteEndPoint}");
+                Console.WriteLine(e.Message);
             }
             finally
             {
@@ -70,6 +70,7 @@ namespace Server
         // закрытие подключения
         protected internal void Close()
         {
+            Console.WriteLine(userName + " умер!");
             if (Stream != null)
                 Stream.Close();
             if (client != null)
@@ -83,14 +84,15 @@ namespace Server
             else user = userName;
             
             ISerializable command = null;
+            Console.WriteLine("все хорошо 1");
             if (AuthReg.CanDeserialize(json))
             {
+                Console.WriteLine($"Пришла команда от {user} - {client.Client.RemoteEndPoint} типа AuthReg\n");
                 command = AuthReg.Deserialize(json);
-                Console.WriteLine($"Пришла команда от {user} - {client.Client.RemoteEndPoint} типа AuthReg");
             } else if (Message.CanDeserialize(json))
             {
+                Console.WriteLine($"Пришла команда от {user} - {client.Client.RemoteEndPoint} типа Message\n");
                 command = Message.Deserialize(json);
-                Console.WriteLine($"Пришла команда от {user} - {client.Client.RemoteEndPoint} типа Message");
             }
             Console.WriteLine(json);
             command.Execute(this);
@@ -98,6 +100,7 @@ namespace Server
 
         public void SendMessage(string message)
         {
+            Console.WriteLine("Отправляю сообщение " + userName + " ----- " + message);
             byte[] data = Encoding.Unicode.GetBytes(message);
             Stream.Write(data, 0, data.Length);
         }

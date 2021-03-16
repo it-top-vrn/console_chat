@@ -25,16 +25,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f31a6f5e-3aa0-4c03-8a29-3ee3f45bc255" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleChat/AutorizationForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/AutorizationForm.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleChat/ChatForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/ChatForm.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleChat/JSON/AuthReg.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/JSON/AuthReg.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleChat/JSON/Message.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/JSON/Message.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleChat/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleChat/ServerConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/ServerConnection.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/Client.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/JSON/AuthReg.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/JSON/AuthReg.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/JSON/Message.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/JSON/Message.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/Server.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Server/Server.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,37 +51,28 @@
     <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/ConsoleChat/ChatForm.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Server/JSON/apiDB.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Server/Server.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Server/Client.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ConsoleChat/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ConsoleChat/AutorizationForm.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/apiDatabase/apiDB.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ConsoleChat/JSON/Message.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ConsoleChat/JSON/AuthReg.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ConsoleChat/RegistrationForm.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ConsoleChat/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ConsoleChat/AutorizationForm.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Server/JSON/FTPserver.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Server/Server.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Server/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/apiDatabase/apiDB.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Server/Client.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Server/JSON/Message.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ConsoleChat/ServerConnection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Server/JSON/AuthReg.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Server/JSON/Message.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Server/JSON/apiDB.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ConsoleChat/ChatForm.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Server/JSON/FTPserver.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Server/Program.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/apiDatabase/apiDB.cs" />
-        <option value="$PROJECT_DIR$/Server/JSON/Message.cs" />
-        <option value="$PROJECT_DIR$/ConsoleChat/AutorizationForm.cs" />
-        <option value="$PROJECT_DIR$/ConsoleChat/Program.cs" />
-        <option value="$PROJECT_DIR$/Server/Client.cs" />
-        <option value="$PROJECT_DIR$/ConsoleChat/JSON/AuthReg.cs" />
-        <option value="$PROJECT_DIR$/Server/JSON/AuthReg.cs" />
-        <option value="$PROJECT_DIR$/ConsoleChat/ServerConnection.cs" />
-        <option value="$PROJECT_DIR$/ConsoleChat/ChatForm.cs" />
-        <option value="$PROJECT_DIR$/ConsoleChat/JSON/Message.cs" />
-      </list>
-    </option>
+    <changedPaths>
+      <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d559da96-2e54-451a-b303-3ab580eebe9c/console_1.sql" />
+      <option value="$PROJECT_DIR$/ConsoleChat/JSON/Message.cs" />
+      <option value="$PROJECT_DIR$/ConsoleChat/JSON/AuthReg.cs" />
+    </changedPaths>
   </component>
   <component name="ProjectId" id="1oWTPRmWCso738rMhVkoABRSp7v" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -92,11 +83,13 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3501355" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TWShift.4" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -108,7 +101,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected=".NET Project.ConsoleChat">
+  <component name="RunManager" selected=".NET Project.Server">
     <configuration name="Autorization" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -124,7 +117,7 @@
       <option name="PROJECT_KIND" value="DotNetCore" />
       <option name="PROJECT_TFM" value="" />
       <method v="2">
-        <option name="Build" enabled="true" />
+        <option name="Build" />
       </method>
     </configuration>
     <configuration name="ConsoleChat" type="DotNetProject" factoryName=".NET Project">
@@ -142,7 +135,7 @@
       <option name="PROJECT_KIND" value="DotNetCore" />
       <option name="PROJECT_TFM" value="" />
       <method v="2">
-        <option name="Build" enabled="true" />
+        <option name="Build" />
       </method>
     </configuration>
     <configuration name="Server" type="DotNetProject" factoryName=".NET Project">
@@ -160,7 +153,7 @@
       <option name="PROJECT_KIND" value="DotNetCore" />
       <option name="PROJECT_TFM" value="" />
       <method v="2">
-        <option name="Build" enabled="true" />
+        <option name="Build" />
       </method>
     </configuration>
   </component>
@@ -176,7 +169,7 @@
       </list>
     </option>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -191,6 +184,7 @@
       <workItem from="1613753748887" duration="1406000" />
       <workItem from="1614430019721" duration="2806000" />
       <workItem from="1614703498063" duration="3130000" />
+      <workItem from="1615912352934" duration="3126000" />
     </task>
     <servers />
   </component>
@@ -204,41 +198,14 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state width="1876" height="585" key="GridCell.Tab.0.bottom" timestamp="1615315460298">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1876" height="585" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1615315460298" />
-    <state width="1876" height="585" key="GridCell.Tab.0.center" timestamp="1615315460298">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1876" height="585" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1615315460298" />
-    <state width="1876" height="585" key="GridCell.Tab.0.left" timestamp="1615315460298">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1876" height="585" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1615315460298" />
-    <state width="1876" height="585" key="GridCell.Tab.0.right" timestamp="1615315460298">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1876" height="585" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1615315460298" />
-    <state x="461" y="150" key="SettingsEditor" timestamp="1615309969953">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="150" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1615309969953" />
-    <state x="769" y="435" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1615309785566">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="769" y="435" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1615309785566" />
   </component>
 </project>

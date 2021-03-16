@@ -95,6 +95,7 @@ namespace ConsoleChat
                 command = Message.Deserialize(json);
             }
             Console.WriteLine(json);
+            
             command.Execute();
         }
         public void Disconnect()

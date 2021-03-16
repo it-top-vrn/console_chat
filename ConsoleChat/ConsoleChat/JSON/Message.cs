@@ -31,6 +31,7 @@ namespace Server.JSON
 
         public void Execute()
         {
+            
             if (TypeofCommand == MessageTypeofCommand.TextMessage || TypeofCommand == MessageTypeofCommand.FileMessage)
             {
                 
