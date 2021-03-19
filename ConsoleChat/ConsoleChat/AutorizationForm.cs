@@ -95,7 +95,7 @@ namespace ConsoleChat
 			MatchCollection matches = regex.Matches(s);
 			if ((matches.Count > 0) || (s.Length < 5) || (s.Length > 20))
 			{
-				MessageBox.Query("Ошибка , недопустимый формат логина", "допускаются только  A-z,0-9");
+				MessageBox.Query("Ошибка , недопустимый формат логина", "допускаются только  A-z,0-9", "OK");
 			}
 			else
 			{
