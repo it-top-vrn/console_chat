@@ -35,10 +35,22 @@ namespace Server.JSON
             {
                 if (Success)
                 {
-                    Program.userName = Login;
-                    Program.userList = UserList;
-                    Application.Shutdown();
-                    new ChatForm().Initialize(ServerConnection.instance);
+                    if (TypeOfCommand == AuthRegTypeOfCommand.Registration && Program.userName != Login)
+                    {
+                        foreach(var item in UserList)
+                        {
+                            if (!Program.userList.Contains(item))
+                            {
+                                Program.userList.Add(item);
+                            }
+                        }
+                    } else
+                    {
+                        Program.userName = Login;
+                        Program.userList = UserList;
+                        Application.Shutdown();
+                        new ChatForm().Initialize(ServerConnection.instance);
+                    }
                 }
                 else
                 {

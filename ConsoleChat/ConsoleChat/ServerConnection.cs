@@ -103,7 +103,7 @@ namespace ConsoleChat
             
             Application.MainLoop.Invoke(() =>
             {
-                command.Execute();
+                if(command != null) command.Execute();
             });
             
             

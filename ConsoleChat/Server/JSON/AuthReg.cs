@@ -51,6 +51,13 @@ namespace Server.JSON
                     UserList.Remove(Login);
                     Success = true;
                     client.userName = Login;
+                    foreach(var cl in client.server.GetClients())
+                    {
+                        if(cl.userName != Login)
+                        {
+                            cl.SendMessage(Serialize());
+                        }
+                    }
                 }
                 else if (Message == "Registration fail")
                 {
@@ -58,10 +65,6 @@ namespace Server.JSON
                 }
             }
             client.SendMessage(Serialize());
-            if (!Success)
-            {
-                client.server.RemoveConnection(client.Id);
-            }
         }
         public static bool CanDeserialize(string json)
         {

@@ -24,10 +24,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f31a6f5e-3aa0-4c03-8a29-3ee3f45bc255" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleChat/AutorizationForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/AutorizationForm.cs" afterDir="false" />
-    </list>
+    <list default="true" id="f31a6f5e-3aa0-4c03-8a29-3ee3f45bc255" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -166,7 +163,7 @@
       <workItem from="1614703498063" duration="3130000" />
       <workItem from="1615912352934" duration="3126000" />
       <workItem from="1615922027650" duration="2862000" />
-      <workItem from="1616170232170" duration="3989000" />
+      <workItem from="1616170232170" duration="4575000" />
     </task>
     <servers />
   </component>
