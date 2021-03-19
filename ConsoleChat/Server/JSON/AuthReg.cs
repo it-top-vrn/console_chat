@@ -48,7 +48,6 @@ namespace Server.JSON
                 if (Message == "Registration success")
                 {
                     UserList = DBconnection.GetUserList();
-                    UserList.Remove(Login);
                     Success = true;
                     client.userName = Login;
                     foreach(var cl in client.server.GetClients())
@@ -58,6 +57,7 @@ namespace Server.JSON
                             cl.SendMessage(Serialize());
                         }
                     }
+                    UserList.Remove(Login);
                 }
                 else if (Message == "Registration fail")
                 {

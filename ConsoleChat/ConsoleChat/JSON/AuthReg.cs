@@ -39,7 +39,7 @@ namespace Server.JSON
                     {
                         foreach(var item in UserList)
                         {
-                            if (!Program.userList.Contains(item))
+                            if (item != Program.userName && !Program.userList.Contains(item))
                             {
                                 Program.userList.Add(item);
                             }
