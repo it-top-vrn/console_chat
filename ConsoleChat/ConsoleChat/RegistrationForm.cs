@@ -94,16 +94,20 @@ namespace ConsoleChat
 		{
 			_serverConnection = new ServerConnection();
 
-			string s;
-			s = login.Text.ToString();
-			Regex regex = new Regex(@"/[А-Яа-я<>{}()'!@#$%^&*]/");
-			MatchCollection matches = regex.Matches(s);
-			if (matches.Count > 0)
+			string s = login.Text.ToString();
+			string m = password.Text.ToString();
+			Regex regex1 = new Regex(@"/[А-Яа-я<>{}()'!@#$%^&*]/");
+			MatchCollection matches1 = regex1.Matches(s);
+			if ((matches1.Count > 0) & (s.Length < 5) & (s.Length > 20))
 			{
-				MessageBox.Query("Ошибка", "Найдены запрещенные символы");
+				MessageBox.Query("Ошибка, логин не соответствует требованиям", "OK");
 			}
-			else
+			else if (m.Length < 5)
 			{
+				MessageBox.Query("Ошибка, парль слишком слабый", "OK");
+			}
+            else
+            {
 				AuthReg authReg = new AuthReg();
 				authReg.Login = login.Text.ToString();
 				authReg.Password = password.Text.ToString();
