@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Server.JSON;
 using Terminal.Gui;
@@ -87,10 +88,22 @@ namespace ConsoleChat
 		private void Button_OKOnClicked(TextField login, TextField password)
 		{
 			AuthReg authReg = new AuthReg();
-			authReg.Login = login.Text.ToString();
-			authReg.Password = password.Text.ToString();
-			authReg.TypeOfCommand = AuthRegTypeOfCommand.Authorization;
-			_serverConnection.SendMessage(authReg.Serialize());
+
+			string s;
+			s = login.Text.ToString();
+			Regex regex = new Regex(@"[А-Яа-я<>,.?/|!@#$%^&*()}{:;]");
+			MatchCollection matches = regex.Matches(s);
+			if (matches.Count > 0)
+			{
+				MessageBox.Query("Ошибка", "Найдены недопустимые символы");
+			}
+			else
+			{
+				authReg.Login = login.Text.ToString();
+				authReg.Password = password.Text.ToString();
+				authReg.TypeOfCommand = AuthRegTypeOfCommand.Authorization;
+				_serverConnection.SendMessage(authReg.Serialize());
+			}
 		}
 
 		private void Registration_Form()
