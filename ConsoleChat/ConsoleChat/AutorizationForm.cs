@@ -34,7 +34,7 @@ namespace ConsoleChat
 				X = 6,
 				Y = 2
 			};
-			var password = new Label("Passwordklk: ")
+			var password = new Label("Password: ")
 			{
 				X = 3,
 				Y = 5
@@ -93,9 +93,9 @@ namespace ConsoleChat
 			s = login.Text.ToString();
 			Regex regex = new Regex(@"[А-Яа-я<>,.?/|!@#$%^&*()}{:;]");
 			MatchCollection matches = regex.Matches(s);
-			if (matches.Count > 0)
+			if ((matches.Count > 0) || (s.Length < 5) || (s.Length > 20))
 			{
-				MessageBox.Query("Ошибка", "Найдены недопустимые символы");
+				MessageBox.Query("Ошибка , недопустимый формат логина", "допускаются только  A-z,0-9");
 			}
 			else
 			{

@@ -12,7 +12,10 @@ namespace ConsoleChat
         {
             ServerConnection _serverConnection = new ServerConnection();
             _serverConnection.GetMessage();
-            
+
+            //ChatForm chat = new ChatForm();
+            //chat.Initialize(_serverConnection);
+
             new AutorizationForm().Initialize(_serverConnection);
             
         }
