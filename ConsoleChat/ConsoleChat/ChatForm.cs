@@ -13,6 +13,7 @@ namespace ConsoleChat
 	    private List<string> messages;
 	    private string selectedUser;
 	    private ServerConnection _serverConnection;
+		private ListView list_Message;
 	    
 	    public void Initialize(ServerConnection serverConnection)
 	    {
@@ -39,7 +40,7 @@ namespace ConsoleChat
 				Height = Dim.Fill()
 			};
 			messages = new List<string>();
-			var list_Message = new ListView(messages)
+			list_Message = new ListView(messages)
 			{
 				X = 0,
 				Y = 0,
@@ -162,6 +163,7 @@ namespace ConsoleChat
 			}
 			messages.Add(str);
 			messages.Add("");
+			list_Message.FocusLast();
 		}
 	}
 }
