@@ -146,7 +146,7 @@ namespace api_database
             var connection = DBconnection.Connection();
             if (connection.success)
             {
-                var sql = $"SELECT message_text, message_date, message_type FROM t_message WHERE message_login_sender = '{loginSender}' and message_login_recipient = '{loginRecipient}' order by message_id desc limit {quantityMessages}";
+                var sql = $"SELECT message_text, message_date, message_type, message_login_sender, message_login_recipient FROM t_message WHERE (message_login_sender = '{loginSender}' and message_login_recipient = '{loginRecipient}') or (message_login_sender = '{loginRecipient}' and message_login_recipient = '{loginSender}') order by message_id limit {quantityMessages}";
                 var result = DBconnection.SelectQuery(sql, connection.connection);
                 if(result.HasRows)
                 {
@@ -156,8 +156,12 @@ namespace api_database
                         var baseMessage = result.GetValue(0);
                         var baseDate = result.GetValue(1);
                         var baseType = result.GetValue(2);
+                        var sender = result.GetValue(3);
+                        var recipient = result.GetValue(4);
                         listTextType.Add(baseMessage.ToString());
                         listTextType.Add(baseType.ToString());
+                        listTextType.Add(sender.ToString());
+                        listTextType.Add(recipient.ToString());
                         messages.Add((DateTime) baseDate, listTextType);
                     }
                 }

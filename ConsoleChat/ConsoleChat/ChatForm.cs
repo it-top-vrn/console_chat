@@ -35,7 +35,7 @@ namespace ConsoleChat
 				X = 0,
 				Y = Pos.Bottom(win_Dialogs),
 
-				Width = 50,
+				Width = 70,
 				Height = Dim.Fill()
 			};
 			messages = new List<string>();
@@ -92,8 +92,15 @@ namespace ConsoleChat
 			};
 
 			but_Enter.Clicked += () => {
-				messages.Add($"me: {MessageText.Text.ToString()}");
-				MessageText.Text = "";
+				Message message = new Message
+				{
+					TypeofCommand = MessageTypeofCommand.TextMessage,
+					Sender = Program.userName,
+					Recepient = selectedUser,
+					DateTime = DateTime.Now,
+					TextMessage = MessageText.Text.ToString()
+				};
+				_serverConnection.SendMessage(message.Serialize());
 			};
 
 			top.Add(win_Dialogs);
@@ -119,7 +126,41 @@ namespace ConsoleChat
 
 	    public void AddMessage(string message)
 	    {
-		    messages.Add(message);
-	    }
+			string word = "";
+			List<string> words = new List<string>();
+			for(var i = 0; i < message.Length; i++)
+			{
+				var c = message[i];
+				if (c != ' ')
+				{
+					word += c;
+				} else
+				{
+					words.Add(word);
+					word = "";
+				}
+			}
+			if(word != "" && !words.Contains(word.Trim()))
+			{
+				words.Add(word.Trim());
+			}
+			int size = 0;
+			string str = "";
+			foreach(var item in words)
+			{
+				if (size + item.Length <= 40)
+				{
+					str += item + " ";
+					size += item.Length;
+				} else
+				{
+					messages.Add(str);
+					str = "";
+					size = 0;
+				}
+			}
+			messages.Add(str);
+			messages.Add("");
+		}
 	}
 }

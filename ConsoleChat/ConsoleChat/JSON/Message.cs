@@ -32,22 +32,17 @@ namespace Server.JSON
 
         public void Execute()
         {
-            
             if (TypeofCommand == MessageTypeofCommand.TextMessage || TypeofCommand == MessageTypeofCommand.FileMessage)
             {
-                
+                ChatForm.instance.AddMessage($"[{DateTime}] [{Sender}]: {TextMessage}\n");
             } else if (TypeofCommand == MessageTypeofCommand.GetMessages)
             {
                 Dictionary<DateTime, List<string>> dictionary = JsonConvert.DeserializeObject<Dictionary<DateTime, List<string>>>(TextMessage);
-                string str = "";
                 foreach (var element in dictionary)
                 {
-                    str += $"[{element.Key}] [{Recepient}]: {element.Value[0]}\n";
-                    //ChatForm.instance.AddMessage($"[{element.Key}] [{Recepient}]: {element.Value[0]}");
+                    // ТУТ МОЖЕТ БЫТЬ ФАЙЛ И ЧЕ ДЕЛАТЬ
+                    ChatForm.instance.AddMessage($"[{element.Key}] [{element.Value[2]}]: {element.Value[0]}\n");
                 }
-
-                //MessageBox.Query("str", str, "OK");
-                ChatForm.instance.AddMessage(str);
             }
         }
 
