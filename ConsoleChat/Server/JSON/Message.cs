@@ -34,10 +34,16 @@ namespace Server.JSON
             var server = client.server;
             if (TypeofCommand == MessageTypeofCommand.TextMessage || TypeofCommand == MessageTypeofCommand.FileMessage)
             {
-                foreach (var c in server.GetClients())
+                if(TypeofCommand == MessageTypeofCommand.FileMessage)
                 {
-                    // Здесь может быть логирование
-                    if (c.userName == Recepient)
+                    DBconnection.PostMessage(Sender, Recepient, TextMessage, "file");
+                } else
+                {
+                    DBconnection.PostMessage(Sender, Recepient, TextMessage);
+                }
+                foreach (var recepient in server.GetClients())
+                {
+                    if (recepient.userName == Recepient)
                     {
                         if (TypeofCommand == MessageTypeofCommand.FileMessage)
                         {
@@ -48,10 +54,12 @@ namespace Server.JSON
                         {
                             Console.WriteLine($"Отправка сообщения от {Sender} к {Recepient}");
                         }
-                        c.SendMessage(Serialize());
+                        recepient.SendMessage(Serialize());
                         break;
                     }
                 }
+                client.SendMessage(Serialize());
+
             } else if (TypeofCommand == MessageTypeofCommand.GetMessages)
             {
                 var bufferMessage= DBconnection.GetMessage(Sender, Recepient, AmountMessages);
