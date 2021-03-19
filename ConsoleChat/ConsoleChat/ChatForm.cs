@@ -98,9 +98,10 @@ namespace ConsoleChat
 					Sender = Program.userName,
 					Recepient = selectedUser,
 					DateTime = DateTime.Now,
-					TextMessage = MessageText.Text.ToString()
+					TextMessage = MessageText.Text.ToString(),
 				};
 				_serverConnection.SendMessage(message.Serialize());
+				MessageText.Text = "";
 			};
 
 			top.Add(win_Dialogs);
