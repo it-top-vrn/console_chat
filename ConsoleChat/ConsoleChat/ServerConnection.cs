@@ -13,7 +13,7 @@ namespace ConsoleChat
     {
         public static ServerConnection instance;
         
-        private const string host = "localhost";
+        private const string host = "192.168.0.214";
         private const int port = 8888;
         
         public string UserName { private set; get; }
