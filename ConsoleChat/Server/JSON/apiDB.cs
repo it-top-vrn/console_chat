@@ -146,7 +146,7 @@ namespace api_database
             var connection = DBconnection.Connection();
             if (connection.success)
             {
-                var sql = $"SELECT message_text, message_date, message_type, message_login_sender, message_login_recipient FROM t_message WHERE (message_login_sender = '{loginSender}' and message_login_recipient = '{loginRecipient}') or (message_login_sender = '{loginRecipient}' and message_login_recipient = '{loginSender}') order by message_id limit {quantityMessages}";
+                var sql = $"SELECT message_text, message_date, message_type, message_login_sender, message_login_recipient FROM t_message WHERE (message_login_sender = '{loginSender}' and message_login_recipient = '{loginRecipient}') or (message_login_sender = '{loginRecipient}' and message_login_recipient = '{loginSender}') order by message_id";
                 var result = DBconnection.SelectQuery(sql, connection.connection);
                 if(result.HasRows)
                 {

@@ -26,9 +26,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f31a6f5e-3aa0-4c03-8a29-3ee3f45bc255" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleChat/AutorizationForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/AutorizationForm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleChat/JSON/AuthReg.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/JSON/AuthReg.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleChat/RegistrationForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/RegistrationForm.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleChat/ChatForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/ChatForm.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/JSON/apiDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/JSON/apiDB.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +58,7 @@
     <setting file="file://$PROJECT_DIR$/Server/JSON/apiDB.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Server/JSON/FTPserver.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ConsoleChat/ChatForm.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/56492CE7-D5D3-48BD-A58F-492696644D30/5f/8306078f/View.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Server/Program.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -67,10 +67,11 @@
       <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d559da96-2e54-451a-b303-3ab580eebe9c/console.sql" />
       <option value="$PROJECT_DIR$/ConsoleChat/ServerConnection.cs" />
       <option value="$PROJECT_DIR$/ConsoleChat/Program.cs" />
-      <option value="$PROJECT_DIR$/ConsoleChat/ChatForm.cs" />
       <option value="$PROJECT_DIR$/ConsoleChat/RegistrationForm.cs" />
       <option value="$PROJECT_DIR$/ConsoleChat/AutorizationForm.cs" />
       <option value="$PROJECT_DIR$/ConsoleChat/JSON/AuthReg.cs" />
+      <option value="$PROJECT_DIR$/ConsoleChat/ChatForm.cs" />
+      <option value="$PROJECT_DIR$/Server/JSON/apiDB.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1oWTPRmWCso738rMhVkoABRSp7v" />

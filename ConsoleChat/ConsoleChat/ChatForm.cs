@@ -56,6 +56,7 @@ namespace ConsoleChat
 				Height = Dim.Fill(),
 				Width = Dim.Fill()
 			};
+			list_Message.KeyUp += List_MessageOnKeyUp;
 			var MessageText = new TextField()
 			{
 				X = 0,
@@ -120,6 +121,11 @@ namespace ConsoleChat
 			
 			Application.Run();
 		}
+
+	    private void List_MessageOnKeyUp(View.KeyEventEventArgs obj)
+	    {
+		    // МОЖЕТ БЫТЬ ПРИГОДИТЬСЯ
+	    }
 
 	    public void ClearChat()
 	    {
