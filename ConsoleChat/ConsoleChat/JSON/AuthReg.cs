@@ -39,10 +39,13 @@ namespace Server.JSON
                     {
                         foreach(var item in UserList)
                         {
-                            if (item != Program.userName && !Program.userList.Contains(item))
+                            if (item != Program.userName)
                             {
-                                ChatForm.instance.list_Dialogs.Source.ToList().Add(item);
-                                //Program.userList.Add(item);
+                                if(Program.userList != null && !Program.userList.Contains(item))
+                                {
+                                    ChatForm.instance.list_Dialogs.Source.ToList().Add(item);
+                                    //Program.userList.Add(item);
+                                }
                             }
                         }
                     } else
