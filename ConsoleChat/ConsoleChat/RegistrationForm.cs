@@ -96,7 +96,7 @@ namespace ConsoleChat
 
 			string s = login.Text.ToString();
 			string m = password.Text.ToString();
-			Regex regex1 = new Regex(@"/[А-Яа-я<>{}()'!@#$%^&*]/");
+			Regex regex1 = new Regex(@"/[А-Яа-я<>{}()'!@#$%^&*-;:|/?.,]/");
 			MatchCollection matches1 = regex1.Matches(s);
 			if ((matches1.Count > 0) & (s.Length < 5) & (s.Length > 20))
 			{
