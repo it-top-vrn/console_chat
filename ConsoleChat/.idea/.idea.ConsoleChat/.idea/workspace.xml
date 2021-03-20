@@ -28,8 +28,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleChat/ChatForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/ChatForm.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleChat/JSON/AuthReg.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/JSON/AuthReg.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleChat/RegistrationForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/RegistrationForm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleChat/ServerConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/ServerConnection.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,8 +65,9 @@
       <option value="$PROJECT_DIR$/ConsoleChat/JSON/Message.cs" />
       <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d559da96-2e54-451a-b303-3ab580eebe9c/console.sql" />
       <option value="$PROJECT_DIR$/ConsoleChat/ServerConnection.cs" />
-      <option value="$PROJECT_DIR$/ConsoleChat/ChatForm.cs" />
+      <option value="$PROJECT_DIR$/ConsoleChat/Program.cs" />
       <option value="$PROJECT_DIR$/ConsoleChat/RegistrationForm.cs" />
+      <option value="$PROJECT_DIR$/ConsoleChat/ChatForm.cs" />
       <option value="$PROJECT_DIR$/ConsoleChat/JSON/AuthReg.cs" />
     </changedPaths>
   </component>
@@ -173,7 +172,7 @@
       <workItem from="1615912352934" duration="3126000" />
       <workItem from="1615922027650" duration="2862000" />
       <workItem from="1616170232170" duration="4575000" />
-      <workItem from="1616242769106" duration="1672000" />
+      <workItem from="1616242769106" duration="3557000" />
     </task>
     <servers />
   </component>
