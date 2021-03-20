@@ -41,7 +41,8 @@ namespace Server.JSON
                         {
                             if (item != Program.userName && !Program.userList.Contains(item))
                             {
-                                Program.userList.Add(item);
+                                ChatForm.instance.list_Dialogs.Source.ToList().Add(item);
+                                //Program.userList.Add(item);
                             }
                         }
                     } else

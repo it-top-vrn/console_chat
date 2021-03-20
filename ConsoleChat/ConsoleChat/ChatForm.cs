@@ -13,6 +13,7 @@ namespace ConsoleChat
 	    private string selectedUser;
 	    private ServerConnection _serverConnection;
 		private ListView list_Message;
+		public ListView list_Dialogs;
 	    
 	    public void Initialize(ServerConnection serverConnection)
 	    {
@@ -72,7 +73,7 @@ namespace ConsoleChat
 				Height = 1
 			};
 			
-			var list_Dialogs = new ListView(Program.userList)
+			list_Dialogs = new ListView(Program.userList)
 			{
 				X = 1,
 				Y = 1,
