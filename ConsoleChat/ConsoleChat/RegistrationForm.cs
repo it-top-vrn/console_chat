@@ -116,6 +116,7 @@ namespace ConsoleChat
 				authReg.Login = login.Text.ToString();
 				authReg.Password = password.Text.ToString();
 				authReg.TypeOfCommand = AuthRegTypeOfCommand.Registration;
+				Program.userName = authReg.Login;
 				_serverConnection.SendMessage(authReg.Serialize());
 			}
 		}
