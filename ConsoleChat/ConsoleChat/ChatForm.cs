@@ -168,7 +168,6 @@ namespace ConsoleChat
 				list_Message.MoveUp();
 			}
 			messages.Add("");
-			
 	    }
 	}
 }
