@@ -92,39 +92,46 @@ namespace ConsoleChat
 
 		private void Button_OKOnClicked(TextField login, TextField password, TextField passwordConfirm)
 		{
-			string s = login.Text.ToString();
-			string m = password.Text.ToString();
-			string passwordConf = passwordConfirm.Text.ToString();
-			Regex regex1 = new Regex(@"/[А-Яа-я<>{}()'!@#$%^&*]/");
-			MatchCollection matches1 = regex1.Matches(s);
-			if ((matches1.Count > 0) & (s.Length < 5) & (s.Length > 20))
+			if (!Program.authorizated)
 			{
+				string s = login.Text.ToString();
+				string m = password.Text.ToString();
+				string passwordConf = passwordConfirm.Text.ToString();
+				Regex regex1 = new Regex(@"/[А-Яа-я<>{}()'!@#$%^&*]/");
+				MatchCollection matches1 = regex1.Matches(s);
+				if ((matches1.Count > 0) & (s.Length < 5) & (s.Length > 20))
+				{
 
-				MessageBox.Query("Ошибка", "Логин не соответствует требованиям", "OK");
+					MessageBox.Query("Ошибка", "Логин не соответствует требованиям", "OK");
+				}
+				else if (m.Length < 5)
+				{
+					MessageBox.Query("Ошибка", "Пароль слишком слабый, как и ты", "OK");
+				} 
+				else if (m != passwordConf)
+				{
+					MessageBox.Query("Ошибка", "Пароли не совпадают", "OK");
+				}
+				else
+				{
+					AuthReg authReg = new AuthReg();
+					authReg.Login = login.Text.ToString();
+					authReg.Password = password.Text.ToString();
+					authReg.TypeOfCommand = AuthRegTypeOfCommand.Registration;
+					Program.userName = authReg.Login;
+					_serverConnection.SendMessage(authReg.Serialize());
+				}
 			}
-			else if (m.Length < 5)
-			{
-				MessageBox.Query("Ошибка", "Пароль слишком слабый, как и ты", "OK");
-			} 
-			else if (m != passwordConf)
-			{
-				MessageBox.Query("Ошибка", "Пароли не совпадают", "OK");
-			}
-            else
-            {
-				AuthReg authReg = new AuthReg();
-				authReg.Login = login.Text.ToString();
-				authReg.Password = password.Text.ToString();
-				authReg.TypeOfCommand = AuthRegTypeOfCommand.Registration;
-				Program.userName = authReg.Login;
-				_serverConnection.SendMessage(authReg.Serialize());
-			}
+			
 		}
 
 		private void AutorizationForm()
         {
-			AutorizationForm autoriz = new AutorizationForm();
-			autoriz.Initialize(_serverConnection);
+	        if (!Program.authorizated)
+	        {
+		        AutorizationForm autoriz = new AutorizationForm();
+		        autoriz.Initialize(_serverConnection);
+	        }
         }
 	}
 }
