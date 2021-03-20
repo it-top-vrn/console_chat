@@ -8,6 +8,7 @@ namespace ConsoleChat
     {
         public static string userName;
         public static List<string> userList;
+        public static bool authorizated = false;
         static void Main(string[] args)
         {
             ServerConnection _serverConnection = new ServerConnection();

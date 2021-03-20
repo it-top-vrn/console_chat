@@ -52,6 +52,7 @@ namespace Server.JSON
                         Program.userName = Login;
                         Program.userList = UserList;
                         Application.Shutdown();
+                        Program.authorizated = true;
                         new ChatForm().Initialize(ServerConnection.instance);
                     }
                 }

@@ -154,6 +154,8 @@ namespace ConsoleChat
 			}
 			int size = 0;
 			string str = "";
+			int j = 0;
+			bool shit = false;
 			foreach(var item in words)
 			{
 				if (size + item.Length <= 40)
@@ -163,11 +165,17 @@ namespace ConsoleChat
 				} else
 				{
 					messages.Add(str);
+					if (j == words.Count - 1)
+					{
+						messages.Add(item);
+						shit = true;
+					}
 					str = "";
 					size = 0;
 				}
+				j++;
 			}
-			messages.Add(str);
+			if(!shit) messages.Add(str);
 			if (list_Message.Source.ToList().Count > 14)
 			{
 				list_Message.MovePageDown();

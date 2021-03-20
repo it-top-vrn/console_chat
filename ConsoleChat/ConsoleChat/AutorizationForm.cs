@@ -82,23 +82,28 @@ namespace ConsoleChat
 			win.Add(login, password, loginText, passText, button_OK, button_Cansel, button_Registration);
 
 			Application.Run();
-			
-		}
+	    }
 
 		private void Button_OKOnClicked(TextField login, TextField password)
 		{
-			AuthReg authReg = new AuthReg();
-			authReg.Login = login.Text.ToString();
-			authReg.Password = password.Text.ToString();
-			authReg.TypeOfCommand = AuthRegTypeOfCommand.Authorization;
-			Program.userName = authReg.Login;
-			_serverConnection.SendMessage(authReg.Serialize());
+			if (!Program.authorizated)
+			{
+				AuthReg authReg = new AuthReg();
+				authReg.Login = login.Text.ToString();
+				authReg.Password = password.Text.ToString();
+				authReg.TypeOfCommand = AuthRegTypeOfCommand.Authorization;
+				Program.userName = authReg.Login;
+				_serverConnection.SendMessage(authReg.Serialize());
+			}
 		}
 
 		private void Registration_Form()
         {
-			RegistrationForm reg = new RegistrationForm();
-			reg.Initialize(_serverConnection);
+	        if (!Program.authorizated)
+	        {
+		        RegistrationForm reg = new RegistrationForm();
+		        reg.Initialize(_serverConnection);
+	        }
         }
 	}
 }
