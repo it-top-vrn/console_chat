@@ -9,7 +9,6 @@ namespace ConsoleChat
     class ChatForm
     {
 	    public static ChatForm instance;
-
 	    private List<string> messages;
 	    private string selectedUser;
 	    private ServerConnection _serverConnection;
@@ -36,16 +35,8 @@ namespace ConsoleChat
 				X = 0,
 				Y = Pos.Bottom(win_Dialogs),
 
-				Width = 70,
+				Width = 50,
 				Height = Dim.Fill()
-			};
-			messages = new List<string>();
-			list_Message = new ListView(messages)
-			{
-				X = 0,
-				Y = 0,
-				Height = Dim.Fill(),
-				Width = Dim.Fill()
 			};
 			var win_ShowDialogs = new Window("Dialogs")
 			{
@@ -56,6 +47,14 @@ namespace ConsoleChat
 				Height = Dim.Fill()
 			};
 
+			messages = new List<string>();
+			list_Message = new ListView(messages)
+			{
+				X = 0,
+				Y = 0,
+				Height = Dim.Fill(),
+				Width = Dim.Fill()
+			};
 			var MessageText = new TextField()
 			{
 				X = 0,
