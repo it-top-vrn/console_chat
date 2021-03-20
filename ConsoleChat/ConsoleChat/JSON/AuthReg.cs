@@ -54,7 +54,7 @@ namespace Server.JSON
                 }
                 else
                 {
-                    MessageBox.Query("ERROR", Message, "YES");
+                    MessageBox.Query("Ошибка", Message, "OK");
                 }
             }
         }

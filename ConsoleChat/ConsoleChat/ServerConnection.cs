@@ -100,13 +100,14 @@ namespace ConsoleChat
                 command = Message.Deserialize(json);
             }
             Console.WriteLine(json);
-            
-            Application.MainLoop.Invoke(() =>
+
+            if (command != null)
             {
-                if(command != null) command.Execute();
-            });
-            
-            
+                Application.MainLoop.Invoke(() =>
+                {
+                    command?.Execute();
+                });
+            }
         }
         public void Disconnect()
         {

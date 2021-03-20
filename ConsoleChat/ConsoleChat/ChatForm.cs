@@ -162,8 +162,14 @@ namespace ConsoleChat
 				}
 			}
 			messages.Add(str);
+			list_Message.MovePageDown();
+			list_Message.SelectedItem = messages.Count -1;
+			for (int i = 0; i < 14; i++)
+			{
+				list_Message.MoveUp();
+			}
 			messages.Add("");
-			list_Message.FocusLast();
-		}
+			
+	    }
 	}
 }

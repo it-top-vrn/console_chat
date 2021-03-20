@@ -68,7 +68,7 @@ namespace ConsoleChat
 				Height = 10
 			};
 			button_OK.Clicked += ClickedOk;
-			void ClickedOk() => Button_OKOnClicked(loginText, passText);
+			void ClickedOk() => Button_OKOnClicked(loginText, passText, repeatPassText);
 			var button_Cansel = new Button(10, 10, "Cansel")
 			{
 				Width = 3,
@@ -90,8 +90,9 @@ namespace ConsoleChat
 			Application.Run();
 		}
 
-		private void Button_OKOnClicked(TextField login, TextField password)
+		private void Button_OKOnClicked(TextField login, TextField password, TextField passwordConfirm)
 		{
+<<<<<<< Updated upstream
 			_serverConnection = new ServerConnection();
 
 			string s = login.Text.ToString();
@@ -113,8 +114,32 @@ namespace ConsoleChat
 				authReg.Password = password.Text.ToString();
 				authReg.TypeOfCommand = AuthRegTypeOfCommand.Registration;
 				_serverConnection.SendMessage(authReg.Serialize());
+=======
+			string s = login.Text.ToString();
+			string m = password.Text.ToString();
+			string passwordConf = password.Text.ToString();
+			Regex regex1 = new Regex(@"/[А-Яа-я<>{}()'!@#$%^&*]/");
+			MatchCollection matches1 = regex1.Matches(s);
+			if ((matches1.Count > 0) & (s.Length < 5) & (s.Length > 20))
+			{
+				MessageBox.Query("Ошибка", "Логин не соответствует требованиям", "OK");
 			}
-			
+			else if (m.Length < 5)
+			{
+				MessageBox.Query("Ошибка", "Пароль слишком слабый, как и ты", "OK");
+			} else if (m != passwordConf)
+			{
+				MessageBox.Query("Ошибка", "Пароли не совпадают", "OK");
+			}
+            else
+            {
+				AuthReg authReg = new AuthReg();
+				authReg.Login = login.Text.ToString();
+				authReg.Password = password.Text.ToString();
+				authReg.TypeOfCommand = AuthRegTypeOfCommand.Registration;
+				_serverConnection.SendMessage(authReg.Serialize());
+>>>>>>> Stashed changes
+			}
 		}
 
 		private void AutorizationForm()
