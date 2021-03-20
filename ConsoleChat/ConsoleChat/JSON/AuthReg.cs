@@ -44,7 +44,6 @@ namespace Server.JSON
                                 if(Program.userList != null && !Program.userList.Contains(item))
                                 {
                                     ChatForm.instance.list_Dialogs.Source.ToList().Add(item);
-                                    //Program.userList.Add(item);
                                 }
                             }
                         }
@@ -58,6 +57,7 @@ namespace Server.JSON
                 }
                 else
                 {
+                    Program.userName = null;
                     MessageBox.Query("Ошибка", Message, "OK");
                 }
             }
