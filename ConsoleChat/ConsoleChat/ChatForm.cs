@@ -168,7 +168,10 @@ namespace ConsoleChat
 				}
 			}
 			messages.Add(str);
-			list_Message.MovePageDown();
+			if (list_Message.Source.ToList().Count > 14)
+			{
+				list_Message.MovePageDown();
+			}
 			list_Message.SelectedItem = messages.Count -1;
 			for (int i = 0; i < 14; i++)
 			{
