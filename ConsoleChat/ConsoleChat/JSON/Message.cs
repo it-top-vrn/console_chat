@@ -40,8 +40,21 @@ namespace Server.JSON
                 Dictionary<DateTime, List<string>> dictionary = JsonConvert.DeserializeObject<Dictionary<DateTime, List<string>>>(TextMessage);
                 foreach (var element in dictionary)
                 {
-                    // ТУТ МОЖЕТ БЫТЬ ФАЙЛ И ЧЕ ДЕЛАТЬ
-                    ChatForm.instance.AddMessage($"[{element.Key}] [{element.Value[2]}]: {element.Value[0]}\n");
+                    if (element.Value[1] == "file")
+                    {
+                        ChatForm.instance.AddMessage($"[{element.Key}] [{element.Value[2]}]", true);
+                        string file = "Скачать файл: ";
+                        while (file.Length != 150)
+                        {
+                            file += " ";
+                        }
+                        ChatForm.instance.AddMessage(file, true, element.Value[0]);
+                    }
+                    else
+                    {
+                        ChatForm.instance.AddMessage($"[{element.Key}] [{element.Value[2]}]: {element.Value[0]}\n");
+                    }
+                    
                 }
             }
         }

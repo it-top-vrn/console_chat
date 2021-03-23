@@ -8,6 +8,8 @@ namespace ConsoleChat
 {
     class ChatForm
     {
+	    private int count = 1;
+	    private View lastView;
 	    public static ChatForm instance;
 	    private List<string> messages;
 	    private string selectedUser;
@@ -92,8 +94,9 @@ namespace ConsoleChat
 				ClearChat();
 				_serverConnection.SendMessage(message.Serialize());
 			};
-
-			but_Enter.Clicked += () => {
+			
+			but_Enter.Clicked += () =>
+			{
 				Message message = new Message
 				{
 					TypeofCommand = MessageTypeofCommand.TextMessage,
@@ -103,8 +106,11 @@ namespace ConsoleChat
 					TextMessage = MessageText.Text.ToString(),
 				};
 				_serverConnection.SendMessage(message.Serialize());
+				
 				MessageText.Text = "";
 			};
+			
+			list_Message.OpenSelectedItem += List_MessageOpenSelectedItem;
 
 			top.Add(win_Dialogs);
 			top.Add(win_InptMessage);
@@ -122,6 +128,16 @@ namespace ConsoleChat
 			Application.Run();
 		}
 
+	    private void List_MessageOpenSelectedItem(ListViewItemEventArgs obj)
+	    {
+		    string str = messages[obj.Item];
+		    if (str.StartsWith("Скачать файл") && str.Length > 150)
+		    {
+			    string url = str.Substring(150);
+			    MessageBox.Query("АХУЕННО", $"[{url}]", "OK");
+		    }
+	    }
+
 	    private void List_MessageOnKeyUp(View.KeyEventEventArgs obj)
 	    {
 		    // МОЖЕТ БЫТЬ ПРИГОДИТЬСЯ
@@ -132,60 +148,77 @@ namespace ConsoleChat
 		    messages.Clear();
 	    }
 
-	    public void AddMessage(string message)
+	    public void AddMessage(string message, bool file = false, string url = "")
 	    {
-			string word = "";
-			List<string> words = new List<string>();
-			for(var i = 0; i < message.Length; i++)
-			{
-				var c = message[i];
-				if (c != ' ')
-				{
-					word += c;
-				} else
-				{
-					words.Add(word);
-					word = "";
-				}
-			}
-			if(word != "" && !words.Contains(word.Trim()))
-			{
-				words.Add(word.Trim());
-			}
-			int size = 0;
-			string str = "";
-			int j = 0;
-			bool shit = false;
-			foreach(var item in words)
-			{
-				if (size + item.Length <= 40)
-				{
-					str += item + " ";
-					size += item.Length;
-				} else
-				{
-					messages.Add(str);
-					if (j == words.Count - 1)
-					{
-						messages.Add(item);
-						shit = true;
-					}
-					str = "";
-					size = 0;
-				}
-				j++;
-			}
-			if(!shit) messages.Add(str);
-			if (list_Message.Source.ToList().Count > 14)
-			{
-				list_Message.MovePageDown();
-			}
-			list_Message.SelectedItem = messages.Count -1;
-			for (int i = 0; i < 14; i++)
-			{
-				list_Message.MoveUp();
-			}
-			messages.Add("");
+		    if (!file)
+		    {
+			    string word = "";
+			    List<string> words = new List<string>();
+			    for (var i = 0; i < message.Length; i++)
+			    {
+				    var c = message[i];
+				    if (c != ' ')
+				    {
+					    word += c;
+				    }
+				    else
+				    {
+					    words.Add(word);
+					    word = "";
+				    }
+			    }
+			    if (word != "" && !words.Contains(word.Trim()))
+			    {
+				    words.Add(word.Trim());
+			    }
+
+			    int size = 0;
+			    string str = "";
+			    int j = 0;
+			    bool shit = false;
+			    foreach (var item in words)
+			    {
+				    if (size + item.Length <= 40)
+				    {
+					    str += item + " ";
+					    size += item.Length;
+				    }
+				    else
+				    {
+					    messages.Add(str);
+					    if (j == words.Count - 1)
+					    {
+						    messages.Add(item);
+						    shit = true;
+					    }
+
+					    str = "";
+					    size = 0;
+				    }
+				    j++;
+			    }
+			    if (!shit) messages.Add(str);
+		    }
+		    else
+		    {
+			    if (url == "")
+			    {
+				    messages.Add(message);
+				    return;
+			    }
+			    messages.Add(message + url);
+		    }
+		    if (list_Message.Source.ToList().Count > 14)
+		    {
+			    list_Message.MovePageDown();
+			    list_Message.SelectedItem = messages.Count - 1;
+		    }
+			    
+		    for (int i = 0; i < 14; i++)
+		    {
+			    list_Message.MoveUp();
+		    }
+		    messages.Add("");
 	    }
 	}
 }
