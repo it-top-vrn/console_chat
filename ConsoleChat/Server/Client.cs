@@ -112,15 +112,15 @@ namespace Server
             string pathToFile = Console.ReadLine();
             Console.WriteLine("Укажите кому хотите отправить сообщение:");
             string recepient = Console.ReadLine();
-            FTPserver ftp = new FTPserver();
-            ftp.FTPUploadFile(pathToFile, userName, recepient);
+            //FTPserver ftp = new FTPserver();
+            //ftp.FTPUploadFile(pathToFile, userName, recepient);
             //pathToFile = ftp.RenameFile(pathToFile, userName, recepient);
             Message jsonFile = new Message { TypeofCommand = MessageTypeofCommand.FileMessage, Sender = userName, Recepient = recepient, FileName = pathToFile };
             byte[] data2 = Encoding.Unicode.GetBytes(jsonFile.Serialize());
             Stream.Write(data2, 0, data2.Length);
         }
 
-        public void FTPServerContents()
+        /*public void FTPServerContents()
         {
             FTPserver ftp = new FTPserver();
             ftp.ServerContents();
@@ -130,6 +130,6 @@ namespace Server
         {
             FTPserver ftp = new FTPserver();
             ftp.FTPDownloadFile(filename);
-        }
+        }*/
     }
 }
