@@ -46,7 +46,6 @@ namespace Server
             wc.UploadFileAsync(new Uri(@UriFTP + Path.GetFileName(filename)), filename);
             var link = UriFTP + RenameFile(filename, sender, receiver);
             return link;
-            
         }
 
         public string RenameFile(string filename, string sender, string receiver)

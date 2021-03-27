@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Server.JSON;
 using Terminal.Gui;
+using Server;
 
 namespace ConsoleChat
 {
@@ -17,6 +18,7 @@ namespace ConsoleChat
 	    private ServerConnection _serverConnection;
 		private ListView list_Message;
 		public ListView list_Dialogs;
+		public string link;
 	    
 	    public void Initialize(ServerConnection serverConnection)
 	    {
@@ -114,8 +116,28 @@ namespace ConsoleChat
 			};
 			fileDialog.cancel.Clicked += () =>
 			{
-				MessageBox.Query("ЗАЕБИСЬ", "ФАЙЛ БЫЛ УСПЕШНО ЗАГРУЖЕН", "DA");
-				win_InptMessage.Remove(fileDialog);
+				while (true)
+				{
+					try
+					{
+						var server = new FTPserver();
+						link = server.FTPUploadFile(fileDialog.FilePath.ToString(), Program.userName, selectedUser);
+						Message message = new Message
+						{
+							TypeofCommand = MessageTypeofCommand.FileMessage,
+							Sender = Program.userName,
+							Recepient = selectedUser,
+							DateTime = DateTime.Now,
+							FileName = link,
+						};
+						_serverConnection.SendMessage(message.Serialize());
+						MessageBox.Query("Success", "File uploaded - "+link, "Ok");
+						win_InptMessage.Remove(fileDialog);
+						return;
+					}
+					catch (Exception e) { }
+				}
+				
 			};
 			fileDialog.prompt.Clicked += () =>
 			{
