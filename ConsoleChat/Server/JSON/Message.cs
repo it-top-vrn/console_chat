@@ -36,7 +36,7 @@ namespace Server.JSON
             {
                 if(TypeofCommand == MessageTypeofCommand.FileMessage)
                 {
-                    DBconnection.PostMessage(Sender, Recepient, TextMessage, "file");
+                    DBconnection.PostMessage(Sender, Recepient, FileName, "file");
                 } else
                 {
                     DBconnection.PostMessage(Sender, Recepient, TextMessage);

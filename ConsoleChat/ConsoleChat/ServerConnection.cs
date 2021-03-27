@@ -48,6 +48,7 @@ namespace ConsoleChat
             byte[] data = Encoding.Unicode.GetBytes(message);
             stream.Write(data, 0, data.Length);
             Console.WriteLine("Сообщение было успешно отправлено");
+            ChatForm.LastSentMessage = DateTime.Now;
             Console.WriteLine(message);
         }
         // получение сообщений

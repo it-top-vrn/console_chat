@@ -25,11 +25,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f31a6f5e-3aa0-4c03-8a29-3ee3f45bc255" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleChat/ChatForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/ChatForm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleChat/ConsoleChat.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/ConsoleChat.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleChat/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleChat/ServerConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/ServerConnection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/JSON/Message.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/JSON/Message.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +67,6 @@
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d559da96-2e54-451a-b303-3ab580eebe9c/console.sql" />
-      <option value="$PROJECT_DIR$/ConsoleChat/ServerConnection.cs" />
       <option value="$PROJECT_DIR$/Server/JSON/apiDB.cs" />
       <option value="$PROJECT_DIR$/ConsoleChat/AutorizationForm.cs" />
       <option value="$PROJECT_DIR$/ConsoleChat/RegistrationForm.cs" />
@@ -77,7 +75,9 @@
       <option value="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/56492CE7-D5D3-48BD-A58F-492696644D30/aa/78655434/DirListView.cs" />
       <option value="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/56492CE7-D5D3-48BD-A58F-492696644D30/30/7bfa9dc6/FileDialog.cs" />
       <option value="$PROJECT_DIR$/ConsoleChat/Program.cs" />
+      <option value="$PROJECT_DIR$/ConsoleChat/ServerConnection.cs" />
       <option value="$PROJECT_DIR$/ConsoleChat/ChatForm.cs" />
+      <option value="$PROJECT_DIR$/Server/JSON/Message.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1oWTPRmWCso738rMhVkoABRSp7v" />
@@ -183,7 +183,7 @@
       <workItem from="1616170232170" duration="4575000" />
       <workItem from="1616242769106" duration="3557000" />
       <workItem from="1616515162564" duration="8350000" />
-      <workItem from="1616847983972" duration="3566000" />
+      <workItem from="1616847983972" duration="7237000" />
     </task>
     <servers />
   </component>

@@ -120,43 +120,59 @@ namespace ConsoleChat
 				{
 					try
 					{
-						var server = new FTPserver();
-						link = server.FTPUploadFile(fileDialog.FilePath.ToString(), Program.userName, selectedUser);
-						Message message = new Message
+						if (selectedUser == null)
 						{
-							TypeofCommand = MessageTypeofCommand.FileMessage,
-							Sender = Program.userName,
-							Recepient = selectedUser,
-							DateTime = DateTime.Now,
-							FileName = link,
-						};
-						_serverConnection.SendMessage(message.Serialize());
-						MessageBox.Query("Success", "File uploaded - "+link, "Ok");
-						win_InptMessage.Remove(fileDialog);
-						return;
+							MessageBox.Query("ERROR", "No chat selected", "OK");
+							return;
+						}
+						if (CheckCooldown())
+						{
+							var server = new FTPserver();
+							link = server.FTPUploadFile(fileDialog.FilePath.ToString(), Program.userName, selectedUser);
+							Message message = new Message
+							{
+								TypeofCommand = MessageTypeofCommand.FileMessage,
+								Sender = Program.userName,
+								Recepient = selectedUser,
+								DateTime = DateTime.Now,
+								FileName = link,
+							};
+							_serverConnection.SendMessage(message.Serialize());
+							MessageBox.Query("Success", "File uploaded - " + link, "OK");
+							win_InptMessage.Remove(fileDialog);
+							return;
+						}
 					}
 					catch (Exception e) { }
 				}
-				
 			};
 			fileDialog.prompt.Clicked += () =>
 			{
 				win_InptMessage.Remove(fileDialog);
 			};
-
-
+			
 			but_Enter.Clicked += () =>
 			{
-				Message message = new Message
+				if (selectedUser == null)
 				{
-					TypeofCommand = MessageTypeofCommand.TextMessage,
-					Sender = Program.userName,
-					Recepient = selectedUser,
-					DateTime = DateTime.Now,
-					TextMessage = MessageText.Text.ToString(),
-				};
-				_serverConnection.SendMessage(message.Serialize());
-				
+					MessageBox.Query("ERROR", "No chat selected", "OK");
+				}
+				else
+				{
+					if (!CheckCooldown())
+					{
+						return;
+					}
+					Message message = new Message
+					{
+						TypeofCommand = MessageTypeofCommand.TextMessage,
+						Sender = Program.userName,
+						Recepient = selectedUser,
+						DateTime = DateTime.Now,
+						TextMessage = MessageText.Text.ToString(),
+					};
+					_serverConnection.SendMessage(message.Serialize());
+				}
 				MessageText.Text = "";
 			};
 			
@@ -166,14 +182,11 @@ namespace ConsoleChat
 			top.Add(win_InptMessage);
 			top.Add(win_ShowDialogs);
 
-			win_Dialogs.Add(
-				list_Message);
+			win_Dialogs.Add(list_Message);
 
-			win_InptMessage.Add(
-				MessageText, but_Enter, but_File);
+			win_InptMessage.Add(MessageText, but_Enter, but_File);
 
-			win_ShowDialogs.Add(
-				list_Dialogs);
+			win_ShowDialogs.Add(list_Dialogs);
 			
 			Application.Run();
 		}
@@ -269,6 +282,17 @@ namespace ConsoleChat
 			    list_Message.MoveUp();
 		    }
 		    messages.Add("");
+	    }
+
+	    public static DateTime LastSentMessage = DateTime.Now;
+	    private bool CheckCooldown()
+	    {
+		    if (DateTime.Now.Second - LastSentMessage.Second < 1)
+		    {
+			    MessageBox.Query("WARNING", "Message cooldown", "OK");
+			    return false;
+		    }
+		    return true;
 	    }
 	}
 }
