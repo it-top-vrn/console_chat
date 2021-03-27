@@ -8,6 +8,7 @@ namespace ConsoleChat
 {
     class ChatForm
     {
+	    private FileDialog fileDialog;
 	    private int count = 1;
 	    private View lastView;
 	    public static ChatForm instance;
@@ -29,7 +30,6 @@ namespace ConsoleChat
 			{
 				X = 0,
 				Y = 0,
-
 				Width = 50,
 				Height = 17
 			};
@@ -75,6 +75,16 @@ namespace ConsoleChat
 				Width = 10,
 				Height = 1
 			};
+			var but_File = new Button("Choose File")
+			{
+				X = Pos.Center(),
+				Y = Pos.Bottom(but_Enter),
+				Height = 1
+			};
+			but_File.Clicked += () =>
+			{
+				win_InptMessage.Add(fileDialog);
+			};
 			
 			list_Dialogs = new ListView(Program.userList)
 			{
@@ -94,7 +104,25 @@ namespace ConsoleChat
 				ClearChat();
 				_serverConnection.SendMessage(message.Serialize());
 			};
-			
+
+			fileDialog = new FileDialog()
+			{
+				X = 0,
+				Y = 0,
+				Width = Dim.Fill(),
+				Height = Dim.Fill()
+			};
+			fileDialog.cancel.Clicked += () =>
+			{
+				MessageBox.Query("ЗАЕБИСЬ", "ФАЙЛ БЫЛ УСПЕШНО ЗАГРУЖЕН", "DA");
+				win_InptMessage.Remove(fileDialog);
+			};
+			fileDialog.prompt.Clicked += () =>
+			{
+				win_InptMessage.Remove(fileDialog);
+			};
+
+
 			but_Enter.Clicked += () =>
 			{
 				Message message = new Message
@@ -120,7 +148,7 @@ namespace ConsoleChat
 				list_Message);
 
 			win_InptMessage.Add(
-				MessageText, but_Enter);
+				MessageText, but_Enter, but_File);
 
 			win_ShowDialogs.Add(
 				list_Dialogs);

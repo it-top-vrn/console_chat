@@ -25,9 +25,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f31a6f5e-3aa0-4c03-8a29-3ee3f45bc255" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleChat/ChatForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/ChatForm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsoleChat/JSON/Message.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/JSON/Message.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleChat/ConsoleChat.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/ConsoleChat.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleChat/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,15 +50,17 @@
     <setting file="file://$PROJECT_DIR$/Server/Client.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ConsoleChat/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ConsoleChat/AutorizationForm.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/56492CE7-D5D3-48BD-A58F-492696644D30/ce/7725b33c/FrameView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/apiDatabase/apiDB.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/56492CE7-D5D3-48BD-A58F-492696644D30/aa/78655434/DirListView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ConsoleChat/JSON/Message.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/56492CE7-D5D3-48BD-A58F-492696644D30/30/7bfa9dc6/FileDialog.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ConsoleChat/JSON/AuthReg.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ConsoleChat/RegistrationForm.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ConsoleChat/ServerConnection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Server/JSON/AuthReg.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Server/JSON/Message.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Server/JSON/apiDB.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Server/JSON/FTPserver.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ConsoleChat/ChatForm.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/56492CE7-D5D3-48BD-A58F-492696644D30/5f/8306078f/View.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Server/Program.cs" root0="FORCE_HIGHLIGHTING" />
@@ -66,11 +70,13 @@
       <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d559da96-2e54-451a-b303-3ab580eebe9c/console.sql" />
       <option value="$PROJECT_DIR$/ConsoleChat/ServerConnection.cs" />
       <option value="$PROJECT_DIR$/Server/JSON/apiDB.cs" />
-      <option value="$PROJECT_DIR$/ConsoleChat/Program.cs" />
       <option value="$PROJECT_DIR$/ConsoleChat/AutorizationForm.cs" />
       <option value="$PROJECT_DIR$/ConsoleChat/RegistrationForm.cs" />
       <option value="$PROJECT_DIR$/ConsoleChat/JSON/AuthReg.cs" />
       <option value="$PROJECT_DIR$/ConsoleChat/JSON/Message.cs" />
+      <option value="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/56492CE7-D5D3-48BD-A58F-492696644D30/aa/78655434/DirListView.cs" />
+      <option value="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/56492CE7-D5D3-48BD-A58F-492696644D30/30/7bfa9dc6/FileDialog.cs" />
+      <option value="$PROJECT_DIR$/ConsoleChat/Program.cs" />
       <option value="$PROJECT_DIR$/ConsoleChat/ChatForm.cs" />
     </changedPaths>
   </component>
@@ -176,7 +182,8 @@
       <workItem from="1615922027650" duration="2862000" />
       <workItem from="1616170232170" duration="4575000" />
       <workItem from="1616242769106" duration="3557000" />
-      <workItem from="1616515162564" duration="8284000" />
+      <workItem from="1616515162564" duration="8350000" />
+      <workItem from="1616847983972" duration="3566000" />
     </task>
     <servers />
   </component>
@@ -199,5 +206,24 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/56492CE7-D5D3-48BD-A58F-492696644D30/aa/78655434/DirListView.cs</url>
+          <line>124</line>
+          <properties documentPath="C:\Users\Admin\AppData\Roaming\JetBrains\Rider2020.3\resharper-host\DecompilerCache\decompiler\56492CE7-D5D3-48BD-A58F-492696644D30\aa\78655434\DirListView.cs" initialLine="124" containingFunctionPresentation="method 'MouseEvent'">
+            <startOffsets>
+              <option value="4009" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4036" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

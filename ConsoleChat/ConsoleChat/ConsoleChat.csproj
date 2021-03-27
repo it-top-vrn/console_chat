@@ -8,11 +8,17 @@
   <ItemGroup>
     <PackageReference Include="MySql.Data" Version="8.0.23" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1-beta1" />
-    <PackageReference Include="Terminal.Gui" Version="0.90.3" />
+    <PackageReference Include="NStack.Core" Version="0.14.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Server\Server.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Terminal.Gui, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\Terminal.Gui.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
