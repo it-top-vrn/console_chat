@@ -1,4 +1,4 @@
-﻿namespace Server.JSON
+﻿namespace Server
 {
     public interface ISerializable
     {

@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 using Terminal.Gui;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 
-namespace Server.JSON
+namespace ConsoleChat
 {
     public enum MessageTypeofCommand 
     {
@@ -32,9 +32,18 @@ namespace Server.JSON
 
         public void Execute()
         {
-            if (TypeofCommand == MessageTypeofCommand.TextMessage || TypeofCommand == MessageTypeofCommand.FileMessage)
+            if (TypeofCommand == MessageTypeofCommand.TextMessage)
             {
                 ChatForm.instance.AddMessage($"[{DateTime}] [{Sender}]: {TextMessage}\n");
+            } else if (TypeofCommand == MessageTypeofCommand.FileMessage)
+            {
+                ChatForm.instance.AddMessage($"[{DateTime}] [{Sender}]:", true);
+                string file = "Скачать файл: ";
+                while (file.Length != 150)
+                {
+                    file += " ";
+                }
+                ChatForm.instance.AddMessage(file, true, FileName);
             } else if (TypeofCommand == MessageTypeofCommand.GetMessages)
             {
                 Dictionary<DateTime, List<string>> dictionary = JsonConvert.DeserializeObject<Dictionary<DateTime, List<string>>>(TextMessage);
@@ -42,19 +51,20 @@ namespace Server.JSON
                 {
                     if (element.Value[1] == "file")
                     {
-                        ChatForm.instance.AddMessage($"[{element.Key}] [{element.Value[2]}]", true);
+                        
+                        ChatForm.instance.AddMessage($"[{element.Key}] [{element.Value[2]}]:", true);
                         string file = "Скачать файл: ";
                         while (file.Length != 150)
                         {
                             file += " ";
                         }
                         ChatForm.instance.AddMessage(file, true, element.Value[0]);
+                        //MessageBox.Query("file", element.Value[0], "ok");
                     }
                     else
                     {
                         ChatForm.instance.AddMessage($"[{element.Key}] [{element.Value[2]}]: {element.Value[0]}\n");
                     }
-                    
                 }
             }
         }

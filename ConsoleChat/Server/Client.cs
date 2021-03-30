@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Net.Sockets;
 using System.Text;
-using Server.JSON;
 
 namespace Server
 {
@@ -84,7 +83,6 @@ namespace Server
             else user = userName;
             
             ISerializable command = null;
-            Console.WriteLine("все хорошо 1");
             if (AuthReg.CanDeserialize(json))
             {
                 Console.WriteLine($"Пришла команда от {user} - {client.Client.RemoteEndPoint} типа AuthReg\n");
@@ -94,13 +92,11 @@ namespace Server
                 Console.WriteLine($"Пришла команда от {user} - {client.Client.RemoteEndPoint} типа Message\n");
                 command = Message.Deserialize(json);
             }
-            Console.WriteLine(json);
             command.Execute(this);
         }
 
         public void SendMessage(string message)
         {
-            Console.WriteLine("Отправляю сообщение " + userName + " ----- " + message);
             byte[] data = Encoding.Unicode.GetBytes(message);
             Stream.Write(data, 0, data.Length);
         }
@@ -112,24 +108,10 @@ namespace Server
             string pathToFile = Console.ReadLine();
             Console.WriteLine("Укажите кому хотите отправить сообщение:");
             string recepient = Console.ReadLine();
-            //FTPserver ftp = new FTPserver();
-            //ftp.FTPUploadFile(pathToFile, userName, recepient);
-            //pathToFile = ftp.RenameFile(pathToFile, userName, recepient);
             Message jsonFile = new Message { TypeofCommand = MessageTypeofCommand.FileMessage, Sender = userName, Recepient = recepient, FileName = pathToFile };
             byte[] data2 = Encoding.Unicode.GetBytes(jsonFile.Serialize());
             Stream.Write(data2, 0, data2.Length);
         }
-
-        /*public void FTPServerContents()
-        {
-            FTPserver ftp = new FTPserver();
-            ftp.ServerContents();
-        }
-
-        public void DownLoadFile(string filename)
-        {
-            FTPserver ftp = new FTPserver();
-            ftp.FTPDownloadFile(filename);
-        }*/
+        
     }
 }

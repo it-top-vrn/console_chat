@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 using api_database;
 
-namespace Server.JSON
+namespace Server
 {
     public enum AuthRegTypeOfCommand
     {

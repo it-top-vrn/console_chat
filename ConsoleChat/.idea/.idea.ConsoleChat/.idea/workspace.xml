@@ -25,10 +25,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f31a6f5e-3aa0-4c03-8a29-3ee3f45bc255" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/dataSources/d559da96-2e54-451a-b303-3ab580eebe9c.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ConsoleChat/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleChat/AutorizationForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/AutorizationForm.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleChat/ChatForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/ChatForm.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleChat/JSON/AuthReg.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/JSON/AuthReg.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleChat/JSON/FTPserver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/JSON/FTPserver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleChat/JSON/ISerializeble.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/JSON/ISerializeble.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleChat/JSON/Message.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/JSON/Message.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleChat/RegistrationForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/RegistrationForm.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsoleChat/ServerConnection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleChat/ServerConnection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/Client.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/JSON/AuthReg.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/JSON/AuthReg.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/JSON/ISerializable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/JSON/ISerializable.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/JSON/Message.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/JSON/Message.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/JSON/apiDB.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/JSON/apiDB.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Server/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,39 +62,39 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Server/Server.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Server/Client.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Server/JSON/Message.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ConsoleChat/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ConsoleChat/AutorizationForm.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/56492CE7-D5D3-48BD-A58F-492696644D30/ce/7725b33c/FrameView.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/apiDatabase/apiDB.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/56492CE7-D5D3-48BD-A58F-492696644D30/aa/78655434/DirListView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Server/Client.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Server/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ConsoleChat/JSON/Message.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/56492CE7-D5D3-48BD-A58F-492696644D30/30/7bfa9dc6/FileDialog.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ConsoleChat/JSON/AuthReg.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ConsoleChat/RegistrationForm.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ConsoleChat/ServerConnection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Server/JSON/AuthReg.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Server/JSON/Message.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ConsoleChat/AutorizationForm.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Server/JSON/apiDB.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/apiDatabase/apiDB.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ConsoleChat/RegistrationForm.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ConsoleChat/ChatForm.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/56492CE7-D5D3-48BD-A58F-492696644D30/5f/8306078f/View.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Server/Program.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
-    <changedPaths>
-      <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d559da96-2e54-451a-b303-3ab580eebe9c/console.sql" />
-      <option value="$PROJECT_DIR$/Server/JSON/apiDB.cs" />
-      <option value="$PROJECT_DIR$/ConsoleChat/AutorizationForm.cs" />
-      <option value="$PROJECT_DIR$/ConsoleChat/RegistrationForm.cs" />
-      <option value="$PROJECT_DIR$/ConsoleChat/JSON/AuthReg.cs" />
-      <option value="$PROJECT_DIR$/ConsoleChat/JSON/Message.cs" />
-      <option value="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/56492CE7-D5D3-48BD-A58F-492696644D30/aa/78655434/DirListView.cs" />
-      <option value="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/56492CE7-D5D3-48BD-A58F-492696644D30/30/7bfa9dc6/FileDialog.cs" />
-      <option value="$PROJECT_DIR$/ConsoleChat/Program.cs" />
-      <option value="$PROJECT_DIR$/ConsoleChat/ServerConnection.cs" />
-      <option value="$PROJECT_DIR$/ConsoleChat/ChatForm.cs" />
-      <option value="$PROJECT_DIR$/Server/JSON/Message.cs" />
-    </changedPaths>
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Server/JSON/apiDB.cs" />
+        <option value="$PROJECT_DIR$/Server/JSON/ISerializable.cs" />
+        <option value="$PROJECT_DIR$/Server/JSON/AuthReg.cs" />
+        <option value="$PROJECT_DIR$/ConsoleChat/JSON/AuthReg.cs" />
+        <option value="$PROJECT_DIR$/ConsoleChat/JSON/ISerializeble.cs" />
+        <option value="$PROJECT_DIR$/ConsoleChat/AutorizationForm.cs" />
+        <option value="$PROJECT_DIR$/ConsoleChat/RegistrationForm.cs" />
+        <option value="$PROJECT_DIR$/ConsoleChat/ServerConnection.cs" />
+        <option value="$PROJECT_DIR$/ConsoleChat/JSON/Message.cs" />
+        <option value="$PROJECT_DIR$/ConsoleChat/JSON/FTPserver.cs" />
+        <option value="$PROJECT_DIR$/ConsoleChat/ChatForm.cs" />
+        <option value="$PROJECT_DIR$/Server/Program.cs" />
+        <option value="$PROJECT_DIR$/Server/JSON/Message.cs" />
+        <option value="$PROJECT_DIR$/Server/Client.cs" />
+      </list>
+    </option>
   </component>
   <component name="ProjectId" id="1oWTPRmWCso738rMhVkoABRSp7v" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -184,6 +200,8 @@
       <workItem from="1616242769106" duration="3557000" />
       <workItem from="1616515162564" duration="8350000" />
       <workItem from="1616847983972" duration="7237000" />
+      <workItem from="1616926745127" duration="1908000" />
+      <workItem from="1617100694710" duration="5311000" />
     </task>
     <servers />
   </component>
@@ -207,20 +225,39 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
+  <component name="WindowStateProjectService">
+    <state x="1051" y="219" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617102470435">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1051" y="219" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617102470435" />
+    <state width="1877" height="595" key="GridCell.Tab.0.bottom" timestamp="1617106860125">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="595" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1617106860125" />
+    <state width="1877" height="595" key="GridCell.Tab.0.center" timestamp="1617106860125">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="595" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1617106860125" />
+    <state width="1877" height="595" key="GridCell.Tab.0.left" timestamp="1617106860125">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="595" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1617106860125" />
+    <state width="1877" height="595" key="GridCell.Tab.0.right" timestamp="1617106860125">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="595" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1617106860125" />
+    <state width="196" height="455" key="HiddenNamespacesPopup" timestamp="1617101469799">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="196" height="455" key="HiddenNamespacesPopup/0.0.1920.1040@0.0.1920.1040" timestamp="1617101469799" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/56492CE7-D5D3-48BD-A58F-492696644D30/aa/78655434/DirListView.cs</url>
           <line>124</line>
-          <properties documentPath="C:\Users\Admin\AppData\Roaming\JetBrains\Rider2020.3\resharper-host\DecompilerCache\decompiler\56492CE7-D5D3-48BD-A58F-492696644D30\aa\78655434\DirListView.cs" initialLine="124" containingFunctionPresentation="method 'MouseEvent'">
-            <startOffsets>
-              <option value="4009" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4036" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Users\Admin\AppData\Roaming\JetBrains\Rider2020.3\resharper-host\DecompilerCache\decompiler\56492CE7-D5D3-48BD-A58F-492696644D30\aa\78655434\DirListView.cs" initialLine="124" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

@@ -1,4 +1,4 @@
-﻿namespace Server.JSON
+﻿namespace ConsoleChat
 {
     public interface ISerializable
     {

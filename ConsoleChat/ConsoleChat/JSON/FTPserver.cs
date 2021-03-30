@@ -7,7 +7,7 @@ using System.IO;
 using api_database;
 
 
-namespace Server
+namespace ConsoleChat
 {
     public class FTPserver
     {
@@ -65,7 +65,7 @@ namespace Server
             return filename;
         }
 
-        public void FTPDownloadFile(string filename)
+        public void FTPDownloadFile(string url)
         {
             WebClient wc = new WebClient();
             wc.BaseAddress = UriFTP;
@@ -80,7 +80,12 @@ namespace Server
                     Console.WriteLine(DateTime.Now.ToString() + " - " + "Downloading..");
                     wc.DownloadProgressChanged += new DownloadProgressChangedEventHandler(wc_DownloadProgressChanged);
                     wc.DownloadFileCompleted += new System.ComponentModel.AsyncCompletedEventHandler(wc_DownloadFileCompleted);
-                    wc.DownloadFileAsync(new Uri(filename), "adaddsf.txt");
+                    string fileName = url;
+                    while (fileName.Contains("/"))
+                    {
+                        fileName = fileName.Substring(url.IndexOf("/") + 1);
+                    }
+                    wc.DownloadFileAsync(new Uri(url), fileName);
                     flag = false;
                 }
             } while (flag);

@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 using Terminal.Gui;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 
-namespace Server.JSON
+namespace ConsoleChat
 {
     public enum AuthRegTypeOfCommand
     {

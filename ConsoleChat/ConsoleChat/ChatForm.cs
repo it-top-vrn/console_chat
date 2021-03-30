@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Server.JSON;
 using Terminal.Gui;
 using Server;
 
@@ -9,6 +8,7 @@ namespace ConsoleChat
 {
     class ChatForm
     {
+	    private View viewFileDialog;
 	    private FileDialog fileDialog;
 	    private int count = 1;
 	    private View lastView;
@@ -85,7 +85,7 @@ namespace ConsoleChat
 			};
 			but_File.Clicked += () =>
 			{
-				win_InptMessage.Add(fileDialog);
+				top.Add(viewFileDialog);
 			};
 			
 			list_Dialogs = new ListView(Program.userList)
@@ -107,13 +107,22 @@ namespace ConsoleChat
 				_serverConnection.SendMessage(message.Serialize());
 			};
 
-			fileDialog = new FileDialog()
+			viewFileDialog = new View()
 			{
 				X = 0,
 				Y = 0,
 				Width = Dim.Fill(),
-				Height = Dim.Fill()
+				Height = Dim.Fill(),
 			};
+			
+			fileDialog = new FileDialog()
+			{
+				X = Pos.Center(),
+				Y = Pos.Center(),
+				Width = Dim.Percent(80),
+				Height = Dim.Percent(80)
+			};
+			viewFileDialog.Add(fileDialog);
 			fileDialog.cancel.Clicked += () =>
 			{
 				while (true)
@@ -123,6 +132,7 @@ namespace ConsoleChat
 						if (selectedUser == null)
 						{
 							MessageBox.Query("ERROR", "No chat selected", "OK");
+							top.Remove(viewFileDialog);
 							return;
 						}
 						if (CheckCooldown())
@@ -139,7 +149,7 @@ namespace ConsoleChat
 							};
 							_serverConnection.SendMessage(message.Serialize());
 							MessageBox.Query("Success", "File uploaded - " + link, "OK");
-							win_InptMessage.Remove(fileDialog);
+							top.Remove(viewFileDialog);
 							return;
 						}
 					}
@@ -148,7 +158,7 @@ namespace ConsoleChat
 			};
 			fileDialog.prompt.Clicked += () =>
 			{
-				win_InptMessage.Remove(fileDialog);
+				top.Remove(viewFileDialog);
 			};
 			
 			but_Enter.Clicked += () =>
@@ -198,6 +208,9 @@ namespace ConsoleChat
 		    {
 			    string url = str.Substring(150);
 			    MessageBox.Query("АХУЕННО", $"[{url}]", "OK");
+			    FTPserver ftpServer = new FTPserver();
+			    ftpServer.FTPDownloadFile(url);
+			    
 		    }
 	    }
 
@@ -210,7 +223,7 @@ namespace ConsoleChat
 	    {
 		    messages.Clear();
 	    }
-
+	    
 	    public void AddMessage(string message, bool file = false, string url = "")
 	    {
 		    if (!file)
@@ -268,13 +281,17 @@ namespace ConsoleChat
 			    {
 				    messages.Add(message);
 				    return;
-			    }
+			    } 
 			    messages.Add(message + url);
 		    }
 		    if (list_Message.Source.ToList().Count > 14)
 		    {
-			    list_Message.MovePageDown();
-			    list_Message.SelectedItem = messages.Count - 1;
+			    try
+			    {
+				    list_Message.MovePageDown();
+				    list_Message.SelectedItem = messages.Count - 1;
+			    }
+			    catch (Exception e) { }
 		    }
 			    
 		    for (int i = 0; i < 14; i++)

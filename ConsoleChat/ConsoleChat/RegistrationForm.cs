@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using System.Text;
 using System.Text.RegularExpressions;
-using Server.JSON;
 using Terminal.Gui;
 
 namespace ConsoleChat
