@@ -58,7 +58,7 @@ namespace ConsoleChat
 			{
 				Secret = true,
 				X = Pos.Left(passText),
-				Y = Pos.Top(repeatPassword),
+				Y = 6,
 				Width = Dim.Width(passText)
 			};
 			var button_OK = new Button(3, 10, "OK")
